@@ -24,6 +24,8 @@ The `informalr` R team!
 ## Project
 Add project description...
 
+![](snackman.png)
+
 ## Team
 
 Ordered alphabetically on first name:
