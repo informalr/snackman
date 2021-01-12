@@ -78,6 +78,53 @@ Week|What
 .   |Pick AI library
 .   |Sketch game mechanics
 
+## Software arhitecture
+
+:warning: these are only the current ideas; this is not set in stone :warning:
+
+General ideas:
+
+ * Separate logic from visualization (MVC architecture)
+ * Separate state and action for AI
+ * Allow visual (e.g. Shiny) visualization, as well as text-only (for debugging)
+
+Function argument names:
+
+ * `action`: an action, which always has an `action_type`
+ * `actions`: zero, one or more actions
+ * `action_type`: a type of action, e.g. `"player_move_left"`
+ * `game`: logical state of the game
+ * `game_display`: the visualization of the game, e.g. by a Shiny app
+
+```r
+#' Create an action
+create_action <- function(action_type, ...)
+
+#' Create an action
+create_player_move_left_action <- function() {
+  create_action("move_left_action")
+}
+```
+
+```r
+#' Do actions on a game
+#' @return a game in its new state
+do_actions <- function(game, actions)
+```
+
+```r
+#' Show/print the game as text
+print_game <- function(game) {
+  # Use message/print to show the game as text
+}
+```
+
+```r
+# Play the game
+play_game <- function() {
+  # Run the visualization
+}
+```
 
 ## FAQ
 
