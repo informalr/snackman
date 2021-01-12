@@ -36,28 +36,25 @@ Name                                         |Role
 [Bara](https://github.com/barawaclawik)      |Newbie
 [Claudio](https://github.com/janclod)        |Medior
 [Frans](https://github.com/fransbianchi)     |Junior
-[Geert](https://github.com/bogeert)          |Junior, back-end
-[Jan](https://github.com/janderkkotlarski)   |Newbie
-[Lizzie](https://github.com/Lizzie-Roeble)   |Newbie
+[Geert](https://github.com/bogeert)          |Junior
+[Jan](https://github.com/janderkkotlarski)   |Teaches `git` to newbies
 [Richel](https://github.com/richelbilderbeek)|Team leader
-[Stefano](https://github.com/swom)           |Newbie 
 [Willy](https://github.com/FrieseWoudloper)  |Medior
 
 ## Meetings
 
- * Date: Tuesday January 5 2021, then every Tuesday
+ * Weekday: Tuesday
  * Time: 18:00-20:00
- * Where IRL: meeting room 5171.0708, Linnaeusborg, Zernike
- * Where online: Discord.
+ * Where IRL: No formal meeting place
+ * Where online: Discord
 
 What                     | Time
 -------------------------|------
-Richel @ LB main entrance|18:00
-Doors open               |18:05
+Doors open               |18:00
 Work starts [1]          |18:15
 Break time!              |19:00
 Work continues           |19:15
-End of lesson            |20:00
+Done!                    |20:00
 
  * [1] First thing to do: merge `develop` to your branch, then push your branch
 
@@ -76,7 +73,60 @@ contact [Willy](https://github.com/friesewoudloper).
 
 ## Long-term schedule
 
-ADd info here...
+Week|What
+----|--------------------
+.   |Setup package
+.   |Pick gaming library
+.   |Pick AI library
+.   |Sketch game mechanics
+
+## Software arhitecture
+
+:warning: these are only the current ideas; this is not set in stone :warning:
+
+General ideas:
+
+ * Separate logic from visualization (MVC architecture)
+ * Separate state and action for AI
+ * Allow visual (e.g. Shiny) visualization, as well as text-only (for debugging)
+
+Function argument names:
+
+ * `action`: an action, which always has an `action_type`
+ * `actions`: zero, one or more actions
+ * `action_type`: a type of action, e.g. `"player_move_left"`
+ * `game`: logical state of the game
+ * `game_display`: the visualization of the game, e.g. by a Shiny app
+
+```r
+#' Create an action
+create_action <- function(action_type, ...)
+
+#' Create an action
+create_player_move_left_action <- function() {
+  create_action("move_left_action")
+}
+```
+
+```r
+#' Do actions on a game
+#' @return a game in its new state
+do_actions <- function(game, actions)
+```
+
+```r
+#' Show/print the game as text
+print_game <- function(game) {
+  # Use message/print to show the game as text
+}
+```
+
+```r
+# Play the game
+play_game <- function() {
+  # Run the visualization
+}
+```
 
 ## FAQ
 
@@ -179,4 +229,5 @@ Add here some related project...
  * Shiny tutorial: https://github.com/FrieseWoudloper/shiny-workshop
 
 ## Progress
+
 
