@@ -6,7 +6,6 @@ Branch   |[GitHub Actions](https://github.com/informalr/snackman/actions)       
 `master` |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=master) |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=master)](https://codecov.io/github/informalr/snackman/branch/master)
 `develop`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=develop)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=develop)](https://codecov.io/github/informalr/snackman/branch/develop)
 `alexine`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=alexine)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=alexine)](https://codecov.io/github/informalr/snackman/branch/alexine)
-`bara`   |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=bara)   |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=bara)](https://codecov.io/github/informalr/snackman/branch/bara)
 `claudio`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=claudio)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=claudio)](https://codecov.io/github/informalr/snackman/branch/claudio)
 `frans`  |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=frans)  |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=frans)](https://codecov.io/github/informalr/snackman/branch/frans)
 `geert`  |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=geert)  |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=geert)](https://codecov.io/github/informalr/snackman/branch/geert)
@@ -33,7 +32,6 @@ Ordered alphabetically on first name:
 Name                                         |Role
 ---------------------------------------------|-----------------
 [Alexine](https://github.com/alexinedewit)   |Junior
-[Bara](https://github.com/barawaclawik)      |Newbie
 [Claudio](https://github.com/janclod)        |Medior
 [Frans](https://github.com/fransbianchi)     |Junior
 [Geert](https://github.com/bogeert)          |Junior
