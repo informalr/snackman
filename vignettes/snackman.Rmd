@@ -18,11 +18,14 @@ knitr::opts_chunk$set(
 library(snackman)
 ```
 
-# This is a sketch of snackman
+# These are sketches of snackman UI
 
 ```{r, out.width = "100%", fig.pos="h"}
-sketch_path <- file.path(dirname(getwd()), "inst", "extdata", "snackman.png")
-knitr::include_graphics(sketch_path)
+data_path <- file.path("inst", "extdata")
+sketch_path_1 <- file.path(dirname(getwd()), data_path, "snackman.png")
+sketch_path_2 <- file.path(dirname(getwd()), data_path, "sketch_20210112.png")
+knitr::include_graphics(sketch_path_1)
+knitr::include_graphics(sketch_path_2)
 ```
 
 
