@@ -1,30 +1,15 @@
 #' Snackman game HTML
 #'
 #' @description fun game inspired on pacman
-#' @param header The title to display over the game screen.
+#' @param header The title to display over the game.
 #' @return Panel that will load the snackman game.
 
 #' @examples
-#' \dontrun{
-#' library(shiny)
-#' library(snackman)
-#'
-#' # Add here exmaple
-#'
-#' }
-#'
+#' snackman_html()
+#' snackman_html(header = "Custom header")
 #' @export
 #'
-snackman_loader <- function(header="Snackman") {
-  snackman_game_html <- ' <h1 style="color:white;">%s</h1> '
-
-  shiny::div(
-    shiny::fluidRow(
-      shiny::column(width = 12, align = "center",
-        shiny::div(id = "snackman",
-          shiny::HTML(snackman_game_html)
-        )
-      )
-    )
-  )
+snackman_html <- function(header = "Snackman") {
+  snackman_game_html <- sprintf(' <h1 style="color:white;">%s</h1> ', header)
+  shiny::HTML(snackman_game_html)
 }
