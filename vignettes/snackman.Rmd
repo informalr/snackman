@@ -17,3 +17,15 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(snackman)
 ```
+
+# This is a sketch of snackman
+
+```{r, out.width = "100%", fig.pos="h"}
+sketch_path <- file.path(dirname(getwd()), "inst", "extdata", "snackman.png")
+knitr::include_graphics(sketch_path)
+```
+
+
+Made by [frans](https://github.com/fransbianchi)
+
+
