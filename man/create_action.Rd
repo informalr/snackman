@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_action.R
 \name{create_action}
 \alias{create_action}
-\title{Create an action for the player to go left}
+\title{Create a general action}
 \usage{
 create_action(action_type)
 }
@@ -10,5 +10,5 @@ create_action(action_type)
 \item{action_type}{the type of action}
 }
 \description{
-Create an action for the player to go left
+Create a general action
 }

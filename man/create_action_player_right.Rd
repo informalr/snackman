@@ -2,12 +2,12 @@
 % Please edit documentation in R/create_action.R
 \name{create_action_player_right}
 \alias{create_action_player_right}
-\title{Create an action for the player to go right}
+\title{Action to make the player go right}
 \usage{
 create_action_player_right()
 }
 \description{
-Create an action for the player to go right
+Action to make the player go right
 }
 \note{
 this function must call \link{create_action} to
