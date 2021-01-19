@@ -9,3 +9,7 @@ create_action_player_right()
 \description{
 Create an action for the player to go right
 }
+\note{
+this function must call \link{create_action} to
+inherit everything what an action is
+}
