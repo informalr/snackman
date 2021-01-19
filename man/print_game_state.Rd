@@ -6,6 +6,9 @@
 \usage{
 print_game_state(game_state)
 }
+\arguments{
+\item{game_state}{a game state, as created by \link{create_game_state}}
+}
 \description{
 Show the game state in a pretty way
 }
