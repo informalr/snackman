@@ -28,6 +28,7 @@ arena <- array(
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
 states <- list()
+coordinate <- list()
 
 for(row in 1:nrow(arena)) {
   # print("inside first for")
@@ -35,10 +36,10 @@ for(row in 1:nrow(arena)) {
     # print("inside second for")
     if(arena[row, col] == 1)
       coordinate <- paste(toString(row), toString(col), sep = " ")
-      print(coordinate) #maar we moeten een lijst strings hebben
+      # print(coordinate) #maar we moeten een lijst strings hebben
       #voor dat AI algoritme
-      temp_list <- list(coordinate)
-      rlist::list.append(states, temp_list)
+      # temp_list <- list(coordinate)
+      states <- rlist::list.append(states, a = list(coordinate))
   }
 }
 #wat ging er net fout? #waar staat jouw voorbeeld?
