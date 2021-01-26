@@ -16,8 +16,9 @@
 create_game_state <- function(arena, player) {
   if (!is.character(arena)) stop("The first argument must be a character vector.")
   if (!is.list(player)) stop("The second argument must be a list.")
-  l <- list()
-  l$arena <- arena
-  l$player <- player
-  return(l)
+  game_state <- list()
+  game_state$arena <- arena
+  gamestate$player <- player
+  check_game_state(game_state)
+  return(game_state)
 }
