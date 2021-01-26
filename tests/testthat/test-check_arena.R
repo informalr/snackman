@@ -14,7 +14,11 @@ test_that("use", {
     "'arena' must have at least 3 rows"
   )
   expect_error(
-    check_arena(c("X", "X", "X"),
+    check_arena(c("X", "X", "X")),
+    "Each row in the arena must have at least 3 characters"
+  )
+  expect_error(
+    check_arena(c("XXX", "XXXX", "XXX")),
     "Each row in the arena must have at least 3 characters"
   )
 })

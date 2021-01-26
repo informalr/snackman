@@ -8,5 +8,7 @@ check_arena <- function(arena_text) {
   if (length(arena_text) < 3) {
     stop("'arena' must have at least 3 rows")
   }
-  TRUE
+  if (any(nchar(arena_text) < 3)) {
+    stop("Each row in the arena must have at least 3 characters")
+  }
 }
