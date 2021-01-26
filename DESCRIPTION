@@ -21,3 +21,5 @@ Suggests:
     mockery
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Imports: 
+    shiny
