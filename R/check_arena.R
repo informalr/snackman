@@ -14,8 +14,10 @@ check_arena <- function(arena_text) {
   if (any(nchar(arena_text) < 3)) {
     stop("Each row in the arena must have at least 3 characters")
   }
-  if (length(unique(nchar(arena_text))) != 1) {
-    stop("Each row in the arena must have the same number of characters")
+  if (any(stringr::str_detect(arena_text, "[:digit:]", negate = TRUE))) {
+    stop("All characters of 'arena' must be numbers")
   }
-
+  if (length(unique(nchar(arena_text))) != 1) {
+    stop("'arena' must have at least 3 rows")
+  }
 }
