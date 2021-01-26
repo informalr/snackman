@@ -4,7 +4,7 @@
 \alias{create_game_state}
 \title{Create a game state.}
 \usage{
-create_game_state(a, p)
+create_game_state(arena, player)
 }
 \arguments{
 \item{a}{An arena.}
