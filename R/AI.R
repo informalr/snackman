@@ -34,13 +34,19 @@ for(row in 1:nrow(arena)) {
   for(col in 1:ncol(arena)) {
     # print("inside second for")
     if(arena[row, col] == 1)
-      print("insde if")
-      rlist::list.append(states, paste(toString(row), toString(col), sep = " "))
+      coordinate <- paste(toString(row), toString(col), sep = " ")
+      print(coordinate) #maar we moeten een lijst strings hebben
+      #voor dat AI algoritme
+      temp_list <- list(coordinate)
+      rlist::list.append(states, temp_list)
   }
 }
+#wat ging er net fout? #waar staat jouw voorbeeld?
 
+print(temp_list)
+print(states)
 # Misschien dit help :)
-# rlist::list.append(l, a = c(1, 2))
+#temp_lijst <- rlist::list.append(states, a = c(1, 2))
 
 # for (a in arena[1]) {
 #   for (b in arena[2]) {
