@@ -27,8 +27,9 @@ arena <- array(
 #snap je?
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
-states <- list()
-coordinate <- list()
+#states <- list()
+states <- 0
+coordinate <- 0
 
 for(row in 1:nrow(arena)) {
   # print("inside first for")
@@ -36,32 +37,11 @@ for(row in 1:nrow(arena)) {
     # print("inside second for")
     if(arena[row, col] == 1)
       coordinate <- paste(toString(row), toString(col), sep = " ")
-      # print(coordinate) #maar we moeten een lijst strings hebben
-      #voor dat AI algoritme
-      # temp_list <- list(coordinate)
-      states <- rlist::list.append(states, a = list(coordinate))
-  }
+            states <- append(states, coordinate)
+      }
 }
-#wat ging er net fout? #waar staat jouw voorbeeld?
-
-print(temp_list)
 print(states)
-# Misschien dit help :)
-#temp_lijst <- rlist::list.append(states, a = c(1, 2))
 
-# for (a in arena[1]) {
-#   for (b in arena[2]) {
-#     if (arena[a,b] == 1)
-#           list.append(states, paste(c(toString(a), toString(b)), sep = " "))
-#   }
-# }
-
-print(states)
-#for x = 1 to end
-#for y = 1 to end
-# if arena(x,y) = 1 then amend states with x,y
-states <- paste(c(toString(x), toString(y)), sep = "") # begin state
-#dit is dan dus een lijst met alle mogelijke states waar het poppetje kan zijn
 
 #STAP 3 is al af
 #Dit is een lijst met mogelijke acties. Dus het poppetje kan naar links, rechts
@@ -78,9 +58,11 @@ actions <- c("y+1", "y-1", "x-1", "x+1")
 #Als het poppetje veel moet bewegen om daar te komen is de beloning laag
 
 #the function env has all the states, actions and rewards
-env <- function (state, action)
+env <- function (states, action)
 {
   next_state <- state
+  #dit is dus de movement van het poppetje
+  #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
   if (action == "y+1" && arena[x, y + 1] == "1")
   next_state <- paste(c(toString(x), toString(y+1)), sep = " ")
