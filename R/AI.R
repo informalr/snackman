@@ -1,6 +1,9 @@
 library(ReinforcementLearning)
+#inspired on the following website
+#https://cran.r-project.org/web/packages/ReinforcementLearning/vignettes/ReinforcementLearning.html
 
-# arena maze as ascii art with 9 states
+# TODO import ascii art of arena and convert to arena array as described below.
+# arena maze as ascii art
 arena <- array(
   c(
   c(0,1,0,0,0),
@@ -11,13 +14,14 @@ arena <- array(
   ), dim = c(5,5)
 )
 
-# Define state and action sets
-#TODO: automatically make list of states, should be komma seperated string
+# Define state and make action sets
+#TODO: automatically make list of states, these should be komma seperated string
+
 #for x = 1 to end
 #for y = 1 to end
 # if arena(x,y) = 1 then amend states with x,y
-states <- c(x, y) # begin state
-#dit is dan dus een lijst met alle mogelijke states
+states <- paste(c(toString(x), toString(y)), sep = "") # begin state
+#dit is dan dus een lijst met alle mogelijke states waar het poppetje kan zijn
 
 actions <- c("y+1", "y-1", "x-1", "x+1")
 
