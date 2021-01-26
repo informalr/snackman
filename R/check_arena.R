@@ -3,6 +3,7 @@
 #' All lines need to have the same amount of characters
 #'
 #' Will \link{stop} if not
+#' @param arena_text Blablabla
 #' @export
 check_arena <- function(arena_text) {
   if (!is.character(arena_text)) {
