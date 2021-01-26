@@ -8,4 +8,12 @@ test_that("use", {
     check_player(list()),
     "'player' must be a list with the element 'x'"
   )
+  expect_error(
+    check_player(list(x = 1)),
+    "'player' must be a list with the element 'y'"
+  )
+  expect_error(
+    check_player(list(x = 1, y = 1)),
+    "'player' must be a list with the element 'size'"
+  )
 })

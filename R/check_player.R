@@ -8,4 +8,10 @@ check_player <- function(player) {
   if (!"x" %in% names(player)) {
     stop("'player' must be a list with the element 'x'")
   }
+  if (!"y" %in% names(player)) {
+    stop("'player' must be a list with the element 'y'")
+  }
+  if (!"size" %in% names(player)) {
+    stop("'player' must be a list with the element 'size'")
+  }
 }
