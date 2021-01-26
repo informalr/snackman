@@ -58,14 +58,14 @@ actions <- c("y+1", "y-1", "x-1", "x+1")
 #Als het poppetje veel moet bewegen om daar te komen is de beloning laag
 
 #the function env has all the states, actions and rewards
-env <- function (states, action)
+env <- function (state, action)
 {
   next_state <- state
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
   if (action == "y+1" && arena[x, y + 1] == "1")
-  next_state <- paste(c(toString(x), toString(y+1)), sep = " ")
+    next_state <- paste(c(toString(x), toString(y+1)), sep = " ")
   #TODO hieronder ook aanpassen
   if (action == "y-1" && arena[state[1], state[2] - 1] == "1")
     next_state <- c(state[1], state[2] - 1)
