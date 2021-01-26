@@ -19,5 +19,6 @@ create_game_state <- function(a, p) {
   l <- list()
   l$arena <- a
   l$player <- p
+  check_game_state()
   return(l)
 }

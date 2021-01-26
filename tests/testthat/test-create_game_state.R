@@ -28,4 +28,6 @@ test_that("misuse", {
                "The second argument must be a list.")
   expect_error(create_game_state(arena, NA),
                "The second argument must be a list.")
+  mockery::stub(create_game_state, "is_game_state", mockery::mock(TRUE), depth = 2)
+
 })
