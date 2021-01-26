@@ -1,3 +1,3 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("use", {
+  expect_silent(check_arena(create_test_arena()))
 })
