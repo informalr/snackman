@@ -13,9 +13,11 @@
 #' game_state <- create_game_state()
 #' is_game_state(game_state)
 is_game_state <- function(game_state) {
-  return(
-    (is.list(game_state)) &
-    (is.character(game_state$arena)) &
-    (is.list(game_state$player))
+  is_valid <- FALSE
+  tryCatch({
+    snackman::check_game_state(game_state)
+    is_valid <- TRUE
+  }, error = function(e) {} # nolint no worries
   )
+  is_valid
 }
