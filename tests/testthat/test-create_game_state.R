@@ -1,16 +1,18 @@
-arena <- c(
-  "XXXXX",
-  "X...X",
-  "X..XX",
-  "X...X",
-  "XXXXX"
-)
-player <- list()
-player$x <- 100.0
-player$y <- 200.0
-player$size <- 1
-
 test_that("use", {
+  arena <- c(
+    "XXXXX",
+    "X...X",
+    "X..XX",
+    "X...X",
+    "XXXXX"
+  )
+
+  player <- list()
+  player$x <- 100.0
+  player$y <- 200.0
+  player$size <- 1
+
+  expect_silent(create_game_state(arena, player))
   g <- create_game_state(arena, player)
   expect_type(g, "list")
   expect_equal(names(g)[1], "arena")
@@ -28,6 +30,4 @@ test_that("misuse", {
                "The second argument must be a list.")
   expect_error(create_game_state(arena, NA),
                "The second argument must be a list.")
-  mockery::stub(create_game_state, "is_game_state", mockery::mock(TRUE), depth = 2)
-
 })

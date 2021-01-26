@@ -1,8 +1,8 @@
-#' Determine whether an object is a valid game state.
+#' Check if an object is a valid game state.
 #'
 #' @param game_state Game state.
 #'
-#' @return logical with value `TRUE` for a valid and `FALSE` for an invalid game state.
+#' @return logical, `TRUE` for a valid and `FALSE` for an invalid game state.
 #'
 #' @examples
 #' arena <- create_arena()
