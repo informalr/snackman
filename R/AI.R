@@ -10,7 +10,6 @@ library(ReinforcementLearning)
 #Deze matrix "arena" is een voorbeeld doolhof
 arena <- array(
   c(
-  c(0,1,0,0,0),
   c(0,1,0,1,0),
   c(0,1,1,1,0),
   c(0,1,0,1,0),
@@ -27,6 +26,18 @@ arena <- array(
 #snap je?
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
+# Ljist
+arena_list <- list()
+# PoC example
+arena_exp <- c(0,1,2,3)
+# X positie counter
+x <- 0
+# Y positive counter
+y <- 0
+for (a in arena_exp) {
+
+}
+
 
 #for x = 1 to end
 #for y = 1 to end
