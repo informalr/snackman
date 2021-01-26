@@ -11,6 +11,7 @@ library(ReinforcementLearning)
 arena <- array(
   c(
   c(0,1,0,1,0),
+  c(0,1,0,1,0),
   c(0,1,1,1,0),
   c(0,1,0,1,0),
   c(0,0,0,1,0)
@@ -31,14 +32,19 @@ arena_list <- list()
 # PoC example
 arena_exp <- c(0,1,2,3)
 # X positie counter
-x <- 0
+a <- 0
 # Y positive counter
-y <- 0
-for (a in arena_exp) {
+b <- 0
+states <- list()
 
+for (a in arena[1]) {
+  for (b in arena[2]) {
+    if (arena(a,b) == 1)
+          list.append(states, paste(c(toString(a), toString(b)), sep = " "))
+  }
 }
 
-
+print(states)
 #for x = 1 to end
 #for y = 1 to end
 # if arena(x,y) = 1 then amend states with x,y
