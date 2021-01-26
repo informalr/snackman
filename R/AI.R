@@ -27,22 +27,27 @@ arena <- array(
 #snap je?
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
-# Ljist
-arena_list <- list()
-# PoC example
-arena_exp <- c(0,1,2,3)
-# X positie counter
-a <- 0
-# Y positive counter
-b <- 0
 states <- list()
 
-for (a in arena[1]) {
-  for (b in arena[2]) {
-    if (arena(a,b) == 1)
-          list.append(states, paste(c(toString(a), toString(b)), sep = " "))
+for(row in 1:nrow(arena)) {
+  # print("inside first for")
+  for(col in 1:ncol(arena)) {
+    # print("inside second for")
+    if(arena[row, col] == 1)
+      print("insde if")
+      rlist::list.append(states, paste(toString(row), toString(col), sep = " "))
   }
 }
+
+# Misschien dit help :)
+# rlist::list.append(l, a = c(1, 2))
+
+# for (a in arena[1]) {
+#   for (b in arena[2]) {
+#     if (arena[a,b] == 1)
+#           list.append(states, paste(c(toString(a), toString(b)), sep = " "))
+#   }
+# }
 
 print(states)
 #for x = 1 to end
