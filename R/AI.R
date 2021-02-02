@@ -40,7 +40,7 @@ for(row in 1:nrow(arena)) {
   for(col in 1:ncol(arena)) {
     # print("inside second for")
     if(arena[row, col] == 1) {
-      states[[n_states + 1]] <- list(col = col, row = row)
+      states[[n_states + 1]] <- list(row = row, col = col)
       n_states <- n_states + 1
     }
   }
@@ -70,7 +70,7 @@ env <- function(state, action) {
   }
   # Convert state to list with col and row
   coordinat <- as.numeric(stringr::str_split(string = state, pattern = " ")[[1]])
-  state <- list(col = coordinat[1], row = coordinat[2])
+  state <- list(row = coordinat[1], col = coordinat[2])
 
   next_state <- state
   #dit is dus de movement van het poppetje
@@ -90,7 +90,7 @@ env <- function(state, action) {
   if (action == "right" && col < ncol(arena) - 1 && arena[row, col + 1] == 1) {
     next_state$col <- col + 1
   }
-  if (action == "left" && arena[row, col - 1] == 1 && col > 1)
+  if (action == "left" && col > 1 && arena[row, col - 1] == 1)
     next_state$col <- col - 1
 
   if (next_state == states[[4]] && state != states[[4]]) {
@@ -100,14 +100,14 @@ env <- function(state, action) {
   }
 
   # Convert to string
-  list(NextState = paste(next_state$col, next_state$row), Reward = reward)
+  list(NextState = paste(next_state$row, next_state$col), Reward = reward)
 }
 
 #STAP4B
 #States omzetten naar type string
 states_strings <- rep("", length(states))
 for(i in seq_along(states)) {
-  states_strings[i] <- paste(states[[i]]$col, states[[i]]$row)
+  states_strings[i] <- paste(states[[i]]$row, states[[i]]$col)
 }
 states <- states_strings
 
@@ -138,3 +138,4 @@ model <- ReinforcementLearning(data,
 
 # Print policy
 computePolicy(model)
+
