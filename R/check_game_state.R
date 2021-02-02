@@ -1,4 +1,5 @@
 #' Verify whether the game state is valid, and stop the game when it isn't.
+#' @param game_state Game state
 #' @export
 check_game_state <- function(game_state) {
   if (!is.list(game_state)) {
@@ -10,7 +11,6 @@ check_game_state <- function(game_state) {
   if (!"player" %in% names(game_state)) {
     stop("'game_state' must have an element called 'player'")
   }
-
   snackman::check_arena(game_state$arena)
   snackman::check_player(game_state$player)
 }

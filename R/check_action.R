@@ -2,7 +2,7 @@
 #' Will \link{stop} if not
 #' @export
 check_action <- function(action) {
-  if (!is.list(player)) {
+  if (!is.list(action)) {
     stop("'action' must be a list")
   }
   if (!action %in% c("left", "right", "up", "down")) {
