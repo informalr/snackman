@@ -1,4 +1,5 @@
 #' Check if the action is valid
+#' @param action a list representing an action
 #' Will \link{stop} if not
 #' @export
 check_action <- function(action) {

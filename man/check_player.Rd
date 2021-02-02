@@ -2,12 +2,14 @@
 % Please edit documentation in R/check_player.R
 \name{check_player}
 \alias{check_player}
-\title{Check if the player is valid
-Will \link{stop} if not}
+\title{Check if the player is valid}
 \usage{
 check_player(player)
 }
+\arguments{
+\item{player}{game player
+Will \link{stop} if not}
+}
 \description{
 Check if the player is valid
-Will \link{stop} if not
 }

@@ -1,4 +1,5 @@
 #' Check if the player is valid
+#' @param player game player
 #' Will \link{stop} if not
 #' @export
 check_player <- function(player) {

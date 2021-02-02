@@ -6,6 +6,9 @@
 \usage{
 check_game_state(game_state)
 }
+\arguments{
+\item{game_state}{Game state}
+}
 \description{
 Verify whether the game state is valid, and stop the game when it isn't.
 }

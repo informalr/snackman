@@ -15,12 +15,3 @@ logical, \code{TRUE} for a valid and \code{FALSE} for an invalid game state.
 \description{
 Check if an object is a valid game state.
 }
-\examples{
-arena <- create_arena()
-player <- list()
-player$x <- 100.0
-player$y <- 200.0
-player$size <- 1
-game_state <- create_game_state()
-is_game_state(game_state)
-}
