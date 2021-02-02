@@ -29,25 +29,27 @@ arena <- array(
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
 #states <- list()
-states <- 0
-coordinate <- 0
+states <- list()
+n_states <- 0
+
 
 for(row in 1:nrow(arena)) {
   # print("inside first for")
   for(col in 1:ncol(arena)) {
     # print("inside second for")
-    if(arena[row, col] == 1)
-      coordinate <- paste(toString(row), toString(col), sep = " ")
-            states <- append(states, coordinate)
-      }
+    if(arena[row, col] == 1) {
+      states[[n_states + 1]] <- list(col = col, row = row)
+      n_states <- n_states + 1
+    }
+  }
 }
-#print(states)
+states
 
 
 #STAP 3 is al af
 #Dit is een lijst met mogelijke acties. Dus het poppetje kan naar links, rechts
 #boven en beneden
-actions <- c("y+1", "y-1", "x-1", "x+1")
+actions <- c("up", "right", "down", "left")
 
 #STAP 4 is dan een functie met alle mogelijke transities
 #en de bijbehorende beloning
@@ -59,37 +61,36 @@ actions <- c("y+1", "y-1", "x-1", "x+1")
 #Als het poppetje veel moet bewegen om daar te komen is de beloning laag
 
 #the function env has all the states, actions and rewards
-env <- function (state, action) {
+env <- function(state, action) {
+  if (1 == 2) {
+    state <- states[[1]]
+    action <- "up"
+  }
+
   next_state <- state
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
 
-  col <- stringr::str_split(state, " ")[[1]][1]
-  row <- stringr::str_split(state, " ")[[1]][2]
+  col <- state$col
+  row <- state$row
 
-        if (action == "y+1" && arena[row + 1, col] == "1")
-          next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
-        #TODO hieronder ook aanpassen
-        if (action == "y-1" && arena[row -1 , col] == "1")
-          next_state <- paste(c(toString(row - 1), toString(col)), sep = " ")
-        if (action == "x+1" && arena[row, col + 1] == "1")
-          next_state <- paste(c(toString(row), toString(col+1)), sep = " ")
-        if (action == "x-1" && arena[row, col - 1] == "1")
-          next_state <- paste(c(toString(row), toString(col-1)), sep = " ")
+  if (action == "down" && arena[row + 1, col] == 1)
+    next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
+  #TODO hieronder ook aanpassen
+  if (action == "up" && arena[row -1 , col] == "1")
+    next_state <- paste(c(toString(row - 1), toString(col)), sep = " ")
+  if (action == "right" && arena[row, col + 1] == "1")
+    next_state <- paste(c(toString(row), toString(col+1)), sep = " ")
+  if (action == "left" && arena[row, col - 1] == "1")
+    next_state <- paste(c(toString(row), toString(col-1)), sep = " ")
 
-      if (next_state == state(4,5) && state != state(4,5)) {
-        reward <- 10
-        else {
-          reward <- -1
-        }
-
-      }
-
-    }
-
-  out <- list(NextState = next_state, Reward = reward)
-  return(out)
+  if (next_state == state(4,5) && state != state(4,5)) {
+    reward <- 10
+  } else {
+    reward <- -1
+  }
+  list(NextState = next_state, Reward = reward)
 }
 
 
@@ -100,7 +101,8 @@ data <- ReinforcementLearning::sampleExperience(
    N = 10000,
    env = env,
    states = states,
-   actions = actions)
+   actions = actions
+)
 
 
 #head(data)
