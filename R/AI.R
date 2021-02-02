@@ -65,9 +65,12 @@ actions <- c("up", "right", "down", "left")
 #the function env has all the states, actions and rewards
 env <- function(state, action) {
   if (1 == 2) {
-    state <- states[[1]]
+    state <- "3 2"
     action <- "up"
   }
+  # Convert state to list with col and row
+  coordinat <- as.numeric(stringr::str_split(string = state, pattern = " ")[[1]])
+  state <- list(col = coordinat[1], row = coordinat[2])
 
   next_state <- state
   #dit is dus de movement van het poppetje
@@ -77,13 +80,16 @@ env <- function(state, action) {
   col <- state$col
   row <- state$row
 
-  if (action == "down" && arena[row + 1, col] == 1 && row < nrow(arena))
+  if (action == "down" && row < nrow(arena) - 1 && arena[row + 1, col] == 1) {
     next_state$row <- row + 1
+  }
     #TODO hieronder ook aanpassen
-  if (action == "up" && arena[row -1 , col] == 1 && row > 1)
+  if (action == "up" && row > 1 && arena[row - 1, col] == 1) {
     next_state$row <- row - 1
-  if (action == "right" && arena[row, col + 1] == 1 && col < ncol(arena))
+  }
+  if (action == "right" && col < ncol(arena) - 1 && arena[row, col + 1] == 1) {
     next_state$col <- col + 1
+  }
   if (action == "left" && arena[row, col - 1] == 1 && col > 1)
     next_state$col <- col - 1
 
@@ -92,7 +98,9 @@ env <- function(state, action) {
   } else {
     reward <- -1
   }
-  list(NextState = next_state, Reward = reward)
+
+  # Convert to string
+  list(NextState = paste(next_state$col, next_state$row), Reward = reward)
 }
 
 #STAP4B
@@ -110,7 +118,7 @@ states <- states_strings
 data <- ReinforcementLearning::sampleExperience(
    N = 10000,
    env = env,
-   states = states,
+   states = states_strings,
    actions = actions
 )
 
