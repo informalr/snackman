@@ -8,6 +8,9 @@ All lines need to have the same amount of characters}
 \usage{
 check_arena(arena_text)
 }
+\arguments{
+\item{arena_text}{Blablabla}
+}
 \description{
 Will \link{stop} if not
 }

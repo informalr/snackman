@@ -7,21 +7,13 @@
 create_game_state(arena, player)
 }
 \arguments{
-\item{a}{An arena.}
+\item{arena}{An arena.}
 
-\item{p}{A player.}
+\item{player}{A player.}
 }
 \value{
 A game state.
 }
 \description{
 Create a game state.
-}
-\examples{
-arena <- create_arena()
-player <- list()
-player$x <- 100.0
-player$y <- 200.0
-player$size <- 1
-game_state <- create_game_state(arena, player)
 }
