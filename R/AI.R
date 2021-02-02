@@ -9,15 +9,21 @@ library(ReinforcementLearning)
 # TODO import ascii art of arena and convert to arena array as described below.
 # arena maze as ascii art
 #Deze matrix "arena" is een voorbeeld doolhof
+
+# Topology for humans, in memory it is transposed ...
 arena <- array(
   c(
   c(0,1,0,1,0),
   c(0,1,0,1,0),
   c(0,1,1,1,0),
   c(0,1,0,1,0),
+  c(0,0,0,1,0),
   c(0,0,0,1,0)
-  ), dim = c(5,5)
+  ), dim = c(5, 6)
 )
+arena <- t(arena)
+arena
+
 #poppetje kan alleen op plekken met een 1.
 
 # Define state and make action sets
@@ -93,7 +99,7 @@ env <- function(state, action) {
   if (action == "left" && col > 1 && arena[row, col - 1] == 1)
     next_state$col <- col - 1
 
-  if (next_state == states[[4]] && state != states[[4]]) {
+  if (next_state == "6 4" && state != "6 4") {
     reward <- 10
   } else {
     reward <- -1
@@ -116,7 +122,7 @@ states <- states_strings
 #zoals uitgelegd in bovenstaande website
 # Sample N = 1000 random sequences from the environment
 data <- ReinforcementLearning::sampleExperience(
-   N = 10000,
+   N = 100000,
    env = env,
    states = states_strings,
    actions = actions
