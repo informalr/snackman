@@ -10,6 +10,6 @@ create_game_state <- function(arena, player) {
   snackman::check_player(player)
   game_state <- list()
   game_state$arena <- arena
-  gamestate$player <- player
+  game_state$player <- player
   return(game_state)
 }
