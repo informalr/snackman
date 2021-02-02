@@ -3,7 +3,7 @@
 #' @export
 print_game_state <- function(game_state) {
   # TODO: check the game state
-
+  check_game_state(game_state)
   # TODO: actually show the full game state
   cat(game_state$arena, sep = "\n")
   cat(game_state$player$x)
