@@ -1,3 +1,4 @@
+library(stringr)
 library(ReinforcementLearning)
 #inspired on the following website
 #https://cran.r-project.org/web/packages/ReinforcementLearning/vignettes/ReinforcementLearning.html
@@ -63,22 +64,22 @@ env <- function (state, action) {
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
-  for(row in 1:nrow(arena)) {
-    # print("inside first for")
-    for(col in 1:ncol(arena)) {
-      if(arena[row, col+1] == 1) {
+
+  col <- stringr::str_split(state, " ")[[1]][1]
+  row <- stringr::str_split(state, " ")[[1]][2]
+
         if (action == "y+1" && arena[row + 1, col] == "1")
           next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
         #TODO hieronder ook aanpassen
         if (action == "y-1" && arena[row -1 , col] == "1")
-          next_state <- c(row - 1, col)
+          next_state <- paste(c(toString(row - 1), toString(col)), sep = " ")
         if (action == "x+1" && arena[row, col + 1] == "1")
-          next_state <- c(row, col + 1)
+          next_state <- paste(c(toString(row), toString(col+1)), sep = " ")
         if (action == "x-1" && arena[row, col - 1] == "1")
-          next_state <- c(row, col - 1)
-        if (next_state == state(4,5) && state != state(4,5)) {
-          reward <- 10
-        }
+          next_state <- paste(c(toString(row), toString(col-1)), sep = " ")
+
+      if (next_state == state(4,5) && state != state(4,5)) {
+        reward <- 10
         else {
           reward <- -1
         }
