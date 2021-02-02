@@ -58,8 +58,7 @@ actions <- c("y+1", "y-1", "x-1", "x+1")
 #Als het poppetje veel moet bewegen om daar te komen is de beloning laag
 
 #the function env has all the states, actions and rewards
-env <- function (state, action)
-{
+env <- function (state, action) {
   next_state <- state
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
@@ -67,7 +66,7 @@ env <- function (state, action)
   for(row in 1:nrow(arena)) {
     # print("inside first for")
     for(col in 1:ncol(arena)) {
-      if(arena[row, col+1] == 1)
+      if(arena[row, col+1] == 1) {
         if (action == "y+1" && arena[row + 1, col] == "1")
           next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
         #TODO hieronder ook aanpassen
@@ -84,7 +83,8 @@ env <- function (state, action)
           reward <- -1
         }
 
-        }
+      }
+
     }
 
   out <- list(NextState = next_state, Reward = reward)
