@@ -40,7 +40,7 @@ for(row in 1:nrow(arena)) {
             states <- append(states, coordinate)
       }
 }
-print(states)
+#print(states)
 
 
 #STAP 3 is al af
@@ -64,21 +64,29 @@ env <- function (state, action)
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
-  if (action == "y+1" && arena[x, y + 1] == "1")
-    next_state <- paste(c(toString(x), toString(y+1)), sep = " ")
-  #TODO hieronder ook aanpassen
-  if (action == "y-1" && arena[state[1], state[2] - 1] == "1")
-    next_state <- c(state[1], state[2] - 1)
-  if (action == "x+1" && arena[state[1] + 1, state[2]] == "1")
-    next_state <- c(state[1] + 1, state[2])
-  if (action == "x-1" && arena[state[1] - 1, state[2]] == "1")
-    next_state <- c(state[1] - 1, state[2])
-  if (next_state == state(4,5) && state != state(4,5)) {
-    reward <- 10
-  }
-  else {
-    reward <- -1
-  }
+  for(row in 1:nrow(arena)) {
+    # print("inside first for")
+    for(col in 1:ncol(arena)) {
+      if(arena[row, col+1] == 1)
+        if (action == "y+1" && arena[row + 1, col] == "1")
+          next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
+        #TODO hieronder ook aanpassen
+        if (action == "y-1" && arena[row -1 , col] == "1")
+          next_state <- c(row - 1, col)
+        if (action == "x+1" && arena[row, col + 1] == "1")
+          next_state <- c(row, col + 1)
+        if (action == "x-1" && arena[row, col - 1] == "1")
+          next_state <- c(row, col - 1)
+        if (next_state == state(4,5) && state != state(4,5)) {
+          reward <- 10
+        }
+        else {
+          reward <- -1
+        }
+
+        }
+    }
+
   out <- list(NextState = next_state, Reward = reward)
   return(out)
 }
