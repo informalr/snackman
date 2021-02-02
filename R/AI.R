@@ -95,10 +95,11 @@ env <- function (state, action)
 # STAP 5: dit is ook al af. Parameters om naar de AI library te sturen
 #zoals uitgelegd in bovenstaande website
 # Sample N = 1000 random sequences from the environment
-data <- sampleExperience(N = 10000,
-                         env = env,
-                         states = states,
-                         actions = actions)
+data <- ReinforcementLearning::sampleExperience(
+   N = 10000,
+   env = env,
+   states = states,
+   actions = actions)
 
 
 #head(data)
