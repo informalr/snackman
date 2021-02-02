@@ -29,6 +29,8 @@ arena <- array(
 
 #Hier moet dus een loop komen die arena naar deze lijst maakt
 #states <- list()
+
+#states must be type string/characters!!!!!!
 states <- list()
 n_states <- 0
 
@@ -43,7 +45,7 @@ for(row in 1:nrow(arena)) {
     }
   }
 }
-states
+
 
 
 #STAP 3 is al af
@@ -75,23 +77,31 @@ env <- function(state, action) {
   col <- state$col
   row <- state$row
 
-  if (action == "down" && arena[row + 1, col] == 1)
-    next_state <- paste(c(toString(row + 1), toString(col)), sep = " ")
-  #TODO hieronder ook aanpassen
-  if (action == "up" && arena[row -1 , col] == "1")
-    next_state <- paste(c(toString(row - 1), toString(col)), sep = " ")
-  if (action == "right" && arena[row, col + 1] == "1")
-    next_state <- paste(c(toString(row), toString(col+1)), sep = " ")
-  if (action == "left" && arena[row, col - 1] == "1")
-    next_state <- paste(c(toString(row), toString(col-1)), sep = " ")
+  if (action == "down" && arena[row + 1, col] == 1 && row < nrow(arena))
+    next_state$row <- row + 1
+    #TODO hieronder ook aanpassen
+  if (action == "up" && arena[row -1 , col] == 1 && row > 1)
+    next_state$row <- row - 1
+  if (action == "right" && arena[row, col + 1] == 1 && col < ncol(arena))
+    next_state$col <- col + 1
+  if (action == "left" && arena[row, col - 1] == 1 && col > 1)
+    next_state$col <- col - 1
 
-  if (next_state == state(4,5) && state != state(4,5)) {
+  if (next_state == states[[4]] && state != states[[4]]) {
     reward <- 10
   } else {
     reward <- -1
   }
   list(NextState = next_state, Reward = reward)
 }
+
+#STAP4B
+#States omzetten naar type string
+states_strings <- rep("", length(states))
+for(i in seq_along(states)) {
+  states_strings[i] <- paste(states[[i]]$col, states[[i]]$row)
+}
+states <- states_strings
 
 
 # STAP 5: dit is ook al af. Parameters om naar de AI library te sturen
