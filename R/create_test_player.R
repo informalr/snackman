@@ -1,5 +1,6 @@
 #' Create a test player
 #' @export
 create_test_player <- function() {
-  create_player()
+  player <- create_player()
+  return(player)
 }
