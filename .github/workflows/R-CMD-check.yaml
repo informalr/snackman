@@ -88,8 +88,10 @@ jobs:
         shell: Rscript {0}
 
       - name: Install package
+        if: runner.os == 'macOS' || runner.os == 'Linux'
         run: R CMD INSTALL .
 
       - name: Lint
+        if: runner.os == 'macOS' || runner.os == 'Linux'
         run: lintr::expect_lint_free()
         shell: Rscript {0}
