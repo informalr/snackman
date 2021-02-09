@@ -3,11 +3,11 @@ library(R6)
 Ghost <- R6Class(
   "Ghost",
   private = list(
-    x = NA
+    x = NA,
+    y = NA,
+    personality = NULL
   ),
   public = list(
-    y = NA,
-    personality = NULL,
     initialize = function(x, y, personality) {
       # x and y must be 1 or more
       if (x < 0) {
@@ -20,14 +20,15 @@ Ghost <- R6Class(
         stop("personality must be chase, ambush, freak or idiot")
       }
       private$x <- x
-      self$y <- y
-      self$personality <- personality
+      private$y <- y
+      private$personality <- personality
+    },
+    get_x = function() {
+      return(private$x)
     },
     print = function(){
       print("Ik ben een spookje")
-    },
-
-  )
+    }
   )
 )
 
