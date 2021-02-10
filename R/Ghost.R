@@ -26,6 +26,12 @@ Ghost <- R6Class(
     get_x = function() {
       return(private$x)
     },
+    get_y = function() {
+      return(private$y)
+    },
+    get_personality = function() {
+      return(private$personality)
+    },
     print = function(){
       print("Ik ben een spookje")
     }
