@@ -17,7 +17,7 @@ test_that("things are private", {
   x <- 314
   y <- 272
   personality <- "chase"
-  g <- Ghost$new(x = x, y = y , personality = personality)
+  g <- Ghost$new(x = x, y = y, personality = personality)
   expect_equal(x, g$get_x())
   expect_equal(y, g$get_y())
   expect_equal(personality, g$get_personality())
