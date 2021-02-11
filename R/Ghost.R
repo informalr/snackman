@@ -9,7 +9,6 @@ Ghost <- R6Class(
   ),
   public = list(
     initialize = function(x, y, personality) {
-      # x and y must be 1 or more
       if (x < 0) {
         stop("x must be 1 or more")
       }
@@ -32,8 +31,25 @@ Ghost <- R6Class(
     get_personality = function() {
       return(private$personality)
     },
-    print = function(){
-      print("Ik ben een spookje")
+    set_x = function(x) {
+      if (x < 0) {
+        stop("x must be 1 or more")
+      }
+      private$x <- x
+      invisible()
+    },
+    set_y = function(y) {
+      if (y < 0) {
+        stop("y must be 1 or more")
+      }
+      private$y <- y
+      invisible()
+    },
+    print = function(...){
+      cat("      Ghost: \n")
+      cat("          x:  ", private$x, "\n", sep = "")
+      cat("          y:  ", private$y, "\n", sep = "")
+      cat("personality:  ", private$y, "\n", sep = "")
     }
   )
 )
