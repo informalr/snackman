@@ -2,7 +2,6 @@
 #' @param action_type the type of action
 #' @export
 create_action <- function(action_type) {
-  # TODO: check if action_type is a valid action type
   action <- list()
   action$type <- action_type
   action
