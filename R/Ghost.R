@@ -1,6 +1,6 @@
 library(R6)
 
-Ghost <- R6Class(
+Ghost <- R6Class( # nolint
   "Ghost",
   private = list(
     x = NA,
@@ -16,7 +16,7 @@ Ghost <- R6Class(
       if (y < 0) {
         stop("y must be 1 or more")
       }
-      if (!personality %in% c('chase', 'ambush', 'freak', 'idiot')) {
+      if (!personality %in% c("chase", "ambush", "freak", "idiot")) {
         stop("personality must be chase, ambush, freak or idiot")
       }
       private$x <- x
@@ -26,9 +26,8 @@ Ghost <- R6Class(
     get_x = function() {
       return(private$x)
     },
-    print = function(){
+    print = function() {
       print("Ik ben een spookje")
     }
   )
 )
-
