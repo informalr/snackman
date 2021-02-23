@@ -3,10 +3,9 @@
 #' @export
 run_app <- function() {
   shiny::shinyApp(
-    ui <- shiny::shinyUI(
-      snackman_html()
-    ),
+    ui <- create_ui(),
     server <- function(input, output, session) {
+      # Process input here
     }
   )
 }
