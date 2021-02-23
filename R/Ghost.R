@@ -5,49 +5,19 @@ Ghost <- R6Class( # nolint
   private = list(
     x = NA,
     y = NA,
-    personality = NULL,
-    check = function(...) {
-      arguments <- as.list(match.call())[-1]
-      lapply(seq_along(arguments), function(index, arguments, names) {
-        arg_name <-  names[index]
-        value <- arguments[[index]]
-        if (arg_name == "x") {
-          if (!is.numeric(value)) {
-            stop("x must be a number")
-          }
-          if (value < 0) {
-            stop("x must be 1 or more")
-          }
-          if (value %% 1 != 0) {
-            stop("x must be an integer")
-          }
-        }
-        if (arg_name == "y") {
-          if (!is.numeric(value)) {
-            stop("y must be a number")
-          }
-          if (value < 0) {
-            stop("y must be 1 or more")
-          }
-          if (value %% 1 != 0) {
-            stop("y must be an integer")
-          }
-        }
-        if (arg_name == "personality") {
-          if (!is.numeric(value)) {
-            stop("personality must be a character string")
-          }
-          if (!value %in% c("chase", "ambush", "freak", "idiot")) {
-            stop("personality must be chase, ambush, freak or idiot")
-          }
-        }
-      }, arguments = arguments, names = names(arguments))
-      invisible()
-    }
+    personality = NULL
   ),
   public = list(
-    initialize = function(x = 1, y = 1, personality = "chase") {
-      private$check(x = x, y = y, personality = personality)
+    initialize = function(x, y, personality) {
+      if (x < 0) {
+        stop("x must be 1 or more")
+      }
+      if (y < 0) {
+        stop("y must be 1 or more")
+      }
+      if (!personality %in% c("chase", "ambush", "freak", "idiot")) {
+        stop("personality must be chase, ambush, freak or idiot")
+      }
       private$x <- x
       private$y <- y
       private$personality <- personality
@@ -61,13 +31,17 @@ Ghost <- R6Class( # nolint
     get_personality = function() {
       return(private$personality)
     },
-    set_x = function(x_new) {
-      private$check(x = x_new)
+    set_x = function(x) {
+      if (x < 0) {
+        stop("x must be 1 or more")
+      }
       private$x <- x
       invisible()
     },
     set_y = function(y) {
-      private$check_y(y)
+      if (y < 0) {
+        stop("y must be 1 or more")
+      }
       private$y <- y
       invisible()
     },
@@ -79,4 +53,3 @@ Ghost <- R6Class( # nolint
     }
   )
 )
-
