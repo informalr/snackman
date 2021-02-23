@@ -2,7 +2,11 @@
 #' @inheritParams default_params_doc
 #' @return a \code{c("html", "character")}
 create_ui <- function(game_state) {
+  header <- '<h1 style="color:white;">Snackman</h1>'
+  arena_table <- create_html_arena_table(game_state)
   shiny::shinyUI(
-    snackman_html()
+    shiny::HTML(
+      paste0(header, arena_table)
+    )
   )
 }
