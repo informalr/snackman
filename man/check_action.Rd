@@ -2,14 +2,16 @@
 % Please edit documentation in R/check_action.R
 \name{check_action}
 \alias{check_action}
-\title{Check if the action is valid}
+\title{Check if the action is valid
+Will \link{stop} if not}
 \usage{
 check_action(action)
 }
 \arguments{
-\item{action}{a list representing an action
-Will \link{stop} if not}
+\item{action}{a list representing an action,
+as created by \link{create_action}}
 }
 \description{
 Check if the action is valid
+Will \link{stop} if not
 }

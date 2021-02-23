@@ -1,6 +1,6 @@
 #' Check if the action is valid
-#' @param action a list representing an action
 #' Will \link{stop} if not
+#' @inheritParams default_params_doc
 #' @export
 check_action <- function(action) {
   if (!is.list(action)) {

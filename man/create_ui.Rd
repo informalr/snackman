@@ -2,13 +2,17 @@
 % Please edit documentation in R/create_ui.R
 \name{create_ui}
 \alias{create_ui}
-\title{Create the UI from ...?}
+\title{Visualizes the state of the game in HTML}
 \usage{
-create_ui()
+create_ui(game_state)
+}
+\arguments{
+\item{game_state}{a game state,
+as created by \link{create_game_state}}
 }
 \value{
 a \code{c("html", "character")}
 }
 \description{
-Create the UI from ...?
+Visualizes the state of the game in HTML
 }

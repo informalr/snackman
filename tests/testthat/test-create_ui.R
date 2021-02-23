@@ -6,8 +6,8 @@ test_that("minimal use", {
   )
 })
 
-test_that("minimal use", {
+test_that("UI has table with a table ", {
   ui <- create_ui(create_test_game_state())
-  stringr::str_match(ui, "<table>")
-  stringr::str_match(ui, "<tr>")
+  expect_equal(1, stringr::str_count(ui, "<table>"))
+  expect_equal(3, stringr::str_count(ui, "<tr>"))
 })
