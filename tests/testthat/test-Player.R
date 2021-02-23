@@ -2,15 +2,15 @@ test_that("use", {
   expect_silent(Player$new(1, 1, "chase"))
   expect_error(Player$new(-1, 1, "chase"), "x must be 1 or more")
   expect_error(Player$new(1, -1, "chase"), "y must be 1 or more")
-  expect_error(Player$new(1, 1, "nonsense"),
-               "personality must be chase, ambush, freak or idiot")
+  expect_error(Player$new(1, 1, ""),
+               "name must be a character of length > 0")
 })
 
 test_that("things are private", {
-  g <- Ghost$new(1, 1, "chase")
-  expect_error(g$x <- 3) # private
-  expect_error(g$y <- 3)
-  expect_error(g$personality <- "nonse")
+  p <- Player$new(x = 1, y = 1, "Test player")
+  expect_error(p$x <- 3) # private
+  expect_error(p$y <- 3)
+  expect_error(p$name <- "nonsense")
 })
 
 test_that("things are private", {

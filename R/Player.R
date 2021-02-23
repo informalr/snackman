@@ -4,7 +4,7 @@ Player <- R6Class( # nolint
   "Player",
 
   private = list(
-    x = NA,
+    .x = NA,
     y = NA,
     name = NA
   ),
@@ -20,7 +20,7 @@ Player <- R6Class( # nolint
       if (is.null(name) | nchar(name) == 0) {
         stop("name must be a character of length > 0")
       }
-      private$x <- x
+      private$.x <- x
       private$y <- y
       private$name <- name
     },
@@ -28,9 +28,18 @@ Player <- R6Class( # nolint
     print = function(...) {
       cat("     Player: \n")
       cat("       name:  ", private$name, "\n", sep = "")
-      cat("          x:  ", private$x,    "\n", sep = "")
+      cat("          x:  ", private$.x,    "\n", sep = "")
       cat("          y:  ", private$y,    "\n", sep = "")
 
-    }
+    },
+    active = list(
+      x = function(value) {
+        if (missing(value)) {
+          private$.x
+        } else {
+          stop("`$x` is read only", call. = FALSE)
+        }
+      }
+    )
   )
 )
