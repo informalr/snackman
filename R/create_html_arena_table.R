@@ -5,7 +5,11 @@ create_html_arena_table <- function(game_state) {
   shiny::tagList(
     shiny::tags$table(
       # Make this into a loop to iterate over arena's rows
-      shiny::tags$tr(game_state$arena[1]),
+      shiny::tags$tr(
+        shiny::tags$td(game_state$arena[1][1], # HIERO
+        shiny::tags$td(game_state$arena[1][2],
+        shiny::tags$td(game_state$arena[1][3]
+      ),
       shiny::tags$tr(game_state$arena[2]),
       shiny::tags$tr(game_state$arena[3])
     )
