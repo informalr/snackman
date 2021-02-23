@@ -8,5 +8,6 @@ test_that("minimal use", {
 
 test_that("minimal use", {
   ui <- create_ui(create_test_game_state())
-  stringr::str_match("XXX")
+  stringr::str_match(ui, "<table>")
+  stringr::str_match(ui, "<tr>")
 })
