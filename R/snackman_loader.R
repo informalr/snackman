@@ -9,7 +9,13 @@
 #' snackman_html(header = "Custom header")
 #' @export
 #'
-snackman_html <- function(header = "Snackman") {
-  snackman_game_html <- sprintf(' <h1 style="color:white;">%s</h1> ', header)
+snackman_html <- function(
+  header = "Snackman",
+  game_state
+) {
+  snackman_game_html <- sprintf(
+    ' <h1 style="color:white;">%s</h1> ',
+    header
+  )
   shiny::HTML(snackman_game_html)
 }
