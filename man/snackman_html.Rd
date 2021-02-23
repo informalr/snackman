@@ -4,7 +4,7 @@
 \alias{snackman_html}
 \title{Snackman game HTML}
 \usage{
-snackman_html(header = "Snackman")
+snackman_html(header = "Snackman", game_state)
 }
 \arguments{
 \item{header}{The title to display over the game.}
