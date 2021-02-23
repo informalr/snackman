@@ -17,7 +17,7 @@ Player <- R6Class( # nolint
       if (y < 1) {
         stop("y must be 1 or more")
       }
-      if (is.null(name) | length(name) == 0) {
+      if (is.null(name) | nchar(name) == 0) {
         stop("name must be a character of length > 0")
       }
       private$x <- x
