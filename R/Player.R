@@ -10,7 +10,7 @@ Player <- R6Class( # nolint
   ),
 
   public = list(
-    initialize = function(x, y, name) {
+    initialize = function(x, y, name, size) {
       if (x < 1) {
         stop("x must be 1 or more")
       }

@@ -23,3 +23,9 @@ test_that("things are private", {
   expect_equal(name, g$get_name())
 })
 
+test_that("player has a size", {
+  expect_silent(
+    Player$new(x = 314, y = 217, name = "Snackman", size = 2)
+  )
+})
+
