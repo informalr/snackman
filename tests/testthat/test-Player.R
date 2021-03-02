@@ -24,8 +24,8 @@ test_that("things are private", {
 })
 
 test_that("player has a size", {
-  expect_silent(
-    Player$new(x = 314, y = 217, name = "Snackman", size = 2)
-  )
+  size <- 2
+  p <- Player$new(x = 314, y = 217, name = "Snackman", size = 2)
+  expect_equal(size, p$get_size())
 })
 

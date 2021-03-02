@@ -6,7 +6,8 @@ Player <- R6Class( # nolint
   private = list(
     .x = NA,
     y = NA,
-    name = NA
+    name = NA,
+    size = NA
   ),
 
   public = list(
@@ -23,6 +24,7 @@ Player <- R6Class( # nolint
       private$.x <- x
       private$y <- y
       private$name <- name
+      private$size <- size
     },
     get_x = function() {
       return(private$.x)
@@ -32,6 +34,9 @@ Player <- R6Class( # nolint
     },
     get_name = function() {
       return(private$name)
+    },
+    get_size = function() {
+      return(private$size)
     },
     print = function(...) {
       cat("     Player: \n")
