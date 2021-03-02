@@ -21,6 +21,7 @@ arena <- array(
   c(0,0,0,1,0)
   ), dim = c(5, 6)
 )
+
 arena <- t(arena)
 arena
 
@@ -76,28 +77,39 @@ env <- function(state, action) {
   }
   # Convert state to list with col and row
   coordinat <- as.numeric(stringr::str_split(string = state, pattern = " ")[[1]])
-  state <- list(row = coordinat[1], col = coordinat[2])
+  #state <- list(row = coordinat[1], col = coordinat[2])
 
   next_state <- state
   #dit is dus de movement van het poppetje
   #die vertelt wat de verschillende bewegingen doen met de positie
   #TODO hier uit individuele string van states weer x en y coordinaat peuren
 
-  col <- state$col
-  row <- state$row
+  col <- coordinat[1]
+  row <- coordinat[2]
+  next_col <- coordinat[1]
+  next_row <- coordinat[2]
 
-  if (action == "down" && row < nrow(arena) - 1 && arena[row + 1, col] == 1) {
-    next_state$row <- row + 1
+  for(j in 1:ncol(arena)) {
+    # col<-cols[j]
+    # print("inside first for")
+    for(i in 1:nrow(arena)) {
+      # row<-rows[i]
+  if (action == "down" && i < nrow(arena) - 1 && arena[i, j] == 1
+      && arena[i + 1, j] == 1) {
+    next_row <- i + 1
   }
-    #TODO hieronder ook aanpassen
-  if (action == "up" && row > 1 && arena[row - 1, col] == 1) {
-    next_state$row <- row - 1
+  if (action == "up" && i > 1 && arena[i, j] == 1 && arena[i - 1, j] == 1) {
+    next_row <- i - 1
   }
-  if (action == "right" && col < ncol(arena) - 1 && arena[row, col + 1] == 1) {
-    next_state$col <- col + 1
+  if (action == "right" && j < ncol(arena) - 1 && arena[i, j] == 1
+      && arena[i, j + 1] == 1) {
+    next_col <- j + 1
   }
-  if (action == "left" && col > 1 && arena[row, col - 1] == 1)
-    next_state$col <- col - 1
+  if (action == "left" && j > 1 && arena[i, j] == 1
+      && arena[i, j - 1] == 1) {
+    next_col <- j - 1
+  }
+    }}
 
   if (next_state == "6 4" && state != "6 4") {
     reward <- 10
@@ -106,7 +118,7 @@ env <- function(state, action) {
   }
 
   # Convert to string
-  list(NextState = paste(next_state$row, next_state$col), Reward = reward)
+  list(NextState = paste(next_row, next_col), Reward = reward)
 }
 
 #STAP4B
@@ -122,7 +134,7 @@ states <- states_strings
 #zoals uitgelegd in bovenstaande website
 # Sample N = 1000 random sequences from the environment
 data <- ReinforcementLearning::sampleExperience(
-   N = 100000,
+   N = 10000,
    env = env,
    states = states_strings,
    actions = actions
