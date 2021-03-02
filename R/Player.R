@@ -24,7 +24,15 @@ Player <- R6Class( # nolint
       private$y <- y
       private$name <- name
     },
-
+    get_x = function() {
+      return(private$.x)
+    },
+    get_y = function() {
+      return(private$y)
+    },
+    get_name = function() {
+      return(private$name)
+    },
     print = function(...) {
       cat("     Player: \n")
       cat("       name:  ", private$name, "\n", sep = "")

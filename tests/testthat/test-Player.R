@@ -16,9 +16,10 @@ test_that("things are private", {
 test_that("things are private", {
   x <- 314
   y <- 272
-  personality <- "chase"
-  g <- Ghost$new(x = x, y = y, personality = personality)
+  name <- "Snackman"
+  g <- Player$new(x = x, y = y, name = name)
   expect_equal(x, g$get_x())
   expect_equal(y, g$get_y())
-  expect_equal(personality, g$get_personality())
+  expect_equal(name, g$get_name())
 })
+
