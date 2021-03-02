@@ -29,3 +29,28 @@ test_that("player has a size", {
   expect_equal(size, p$get_size())
 })
 
+test_that("player has a size of 1, 2 or 3", {
+  expect_silent(Player$new(x = 314, y = 217, name = "Snackman", size = 1))
+  expect_silent(Player$new(x = 314, y = 217, name = "Snackman", size = 2))
+  expect_silent(Player$new(x = 314, y = 217, name = "Snackman", size = 3))
+  expect_error(
+    Player$new(x = 314, y = 217, name = "Snackman", size = 0),
+    "size must be 1, 2 or 3"
+  )
+  expect_error(
+    Player$new(x = 314, y = 217, name = "Snackman", size = 4),
+    "size must be 1, 2 or 3"
+  )
+  expect_error(
+    Player$new(x = 314, y = 217, name = "Snackman", size = "nonsense"),
+    "size must be 1, 2 or 3"
+  )
+  expect_error(
+    Player$new(x = 314, y = 217, name = "Snackman", size = NA),
+    "size must be 1, 2 or 3"
+  )
+  expect_error(
+    Player$new(x = 314, y = 217, name = "Snackman", size = NULL),
+    "size must be 1, 2 or 3"
+  )
+})

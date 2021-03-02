@@ -21,6 +21,9 @@ Player <- R6Class( # nolint
       if (is.null(name) | nchar(name) == 0) {
         stop("name must be a character of length > 0")
       }
+      if (!is.numeric(size) ||  size < 1 || size > 3) {
+        stop("size must be 1, 2 or 3")
+      }
       private$.x <- x
       private$y <- y
       private$name <- name
