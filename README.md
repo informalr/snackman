@@ -9,9 +9,7 @@ Branch   |[GitHub Actions](https://github.com/informalr/snackman/actions)       
 `claudio`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=claudio)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=claudio)](https://codecov.io/github/informalr/snackman/branch/claudio)
 `frans`  |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=frans)  |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=frans)](https://codecov.io/github/informalr/snackman/branch/frans)
 `geert`  |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=geert)  |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=geert)](https://codecov.io/github/informalr/snackman/branch/geert)
-`jan`    |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=jan)    |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=jan)](https://codecov.io/github/informalr/snackman/branch/jan)
 `richel` |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=richel) |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=richel)](https://codecov.io/github/informalr/snackman/branch/richel)
-`stefano`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=stefano)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=stefano)](https://codecov.io/github/informalr/snackman/branch/stefano)
 `willy`  |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=willy)  |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=willy)](https://codecov.io/github/informalr/snackman/branch/willy)
 
  * Branches are ordered `master`, `develop`, then topic branches alphabetically
