@@ -1,6 +1,7 @@
 #' Visualizes the state of the game in HTML
 #' @inheritParams default_params_doc
 #' @return a \code{c("html", "character")}
+#' @export
 create_ui <- function(game_state) {
   html_start <- "<html>"
   html_close <- "</html>"

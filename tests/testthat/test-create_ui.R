@@ -1,8 +1,8 @@
 test_that("minimal use", {
-  expect_silent(create_ui())
+  expect_silent(create_ui(create_test_game_state()))
   expect_equal(
     c("html", "character"),
-    class(create_ui())
+    class(create_ui(create_test_game_state()))
   )
 })
 

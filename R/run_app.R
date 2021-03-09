@@ -3,10 +3,11 @@
 #' @export
 run_app <- function() {
   shiny::shinyApp(
-    ui <- shiny::shinyUI( # nolint indeed, ui is not yet used
-      snackman::snackman_html()
-    ),
-    server <- function(input, output, session) { # nolint indeed, server is not yet used
+    ui <- snackman::create_ui(is_game_state(create_game_state(create_arena(),
+                                                              create_player()
+                                                              ))),
+    server <- function(input, output, session) {
+      # nolint indeed, server is not yet used
     }
   )
 }
