@@ -1,5 +1,5 @@
 test_that("use", {
-  skip("WIP for Frans")
+  skip("Issue 53. Issue #53")
   expect_silent(Player$new(1, 1, "chase"))
   expect_error(Player$new(-1, 1, "chase"), "x must be 1 or more")
   expect_error(Player$new(1, -1, "chase"), "y must be 1 or more")
@@ -8,7 +8,7 @@ test_that("use", {
 })
 
 test_that("things are private", {
-  skip("WIP for Frans")
+  skip("Issue 53. Issue #53")
   p <- Player$new(x = 1, y = 1, "Test player")
   expect_error(p$x <- 3) # private
   expect_error(p$y <- 3)
@@ -16,7 +16,7 @@ test_that("things are private", {
 })
 
 test_that("things are private", {
-  skip("WIP for Frans")
+  skip("Issue 53. Issue #53")
   x <- 314
   y <- 272
   name <- "Snackman"
