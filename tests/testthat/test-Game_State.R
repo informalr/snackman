@@ -1,6 +1,6 @@
 test_that("use", {
   expect_silent(
-    Game_State$new(
+    gs <- Game_State$new(
       player = create_test_player(),
       arena = create_test_arena()
     )

@@ -43,7 +43,7 @@ Arena <- R6::R6Class("Arena", #nolint
     },
     print = function(...) {
       cat("Arena: \n")
-      cat(" text:  ", private$.text, "\n", sep = "")
+      cat(" text:  ", private$.text, "\n", sep = "\n")
     }
   )
 )

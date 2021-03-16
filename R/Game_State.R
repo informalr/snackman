@@ -51,7 +51,7 @@ Game_State <- R6::R6Class("Game_State", #nolint
       cat("      size:  ", private$.player$size, "\n", sep = "")
       cat("================================================= \n")
       cat("     Arena: \n")
-      cat("      text:  ", private$.arena$text, "\n", sep = "")
+      cat("      text:  ", private$.arena$text, sep = "\n")
       cat("================================================= \n")
     }
   )
