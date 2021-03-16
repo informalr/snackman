@@ -19,6 +19,7 @@ The `informalr` R team!
 ![informalr logo](man/figures/informalr_logo.png)
 
 ## Project
+
 Add project description...
 
 ![](snackman.png)
@@ -67,16 +68,7 @@ See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 In case it is undesirable to email Richel,
 contact [Willy](https://github.com/friesewoudloper).
 
-## Long-term schedule
-
-Week|What
-----|--------------------
-.   |Setup package
-.   |Pick gaming library
-.   |Pick AI library
-.   |Sketch game mechanics
-
-## Software arhitecture
+## Software architecture
 
 :warning: these are only the current ideas; this is not set in stone :warning:
 
@@ -85,6 +77,8 @@ General ideas:
  * Separate logic from visualization (MVC architecture)
  * Separate state and action for AI
  * Allow visual (e.g. Shiny) visualization, as well as text-only (for debugging)
+
+![](snackman.png)
 
 Function argument names:
 
