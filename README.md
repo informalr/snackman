@@ -95,13 +95,6 @@ do_actions <- function(game, actions)
 ```
 
 ```r
-#' Show/print the game as text
-print_game <- function(game) {
-  # Use message/print to show the game as text
-}
-```
-
-```r
 # Play the game
 play_game <- function() {
   # Run the visualization
