@@ -9,10 +9,10 @@ Ghost <- R6::R6Class("Ghost", #nolint
     .y = NA,
     .personality = NULL,
     check = function(x, y, personality) {
-      if (x < 0) {
+      if (x < 1) {
         stop("x must be 1 or more")
       }
-      if (y < 0) {
+      if (y < 1) {
         stop("y must be 1 or more")
       }
       if (!personality %in% c("chase", "ambush", "freak", "idiot")) {
