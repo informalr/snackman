@@ -9,7 +9,7 @@ R6 Class representing an action
 R6 Class representing an action
 }
 \details{
-A action has a type (right, left, up or down).
+An action has a type (right, left, up or down).
 }
 \section{Methods}{
 \subsection{Public methods}{

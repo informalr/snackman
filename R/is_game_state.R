@@ -4,5 +4,5 @@
 #'
 #' @return logical, `TRUE` for a valid and `FALSE` for an invalid game state.
 is_game_state <- function(game_state) {
-  identical(class(game_state), c("Game_State", "R6"))
+  identical(class(game_state), c("GameState", "R6"))
 }
