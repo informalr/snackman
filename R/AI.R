@@ -1,25 +1,21 @@
 #taken from the following website
 #https://cran.r-project.org/web/packages/ReinforcementLearning/vignettes/ReinforcementLearning.html
+
+#function that takes the:
+#x position of the player in the arena (for example 3)
+#y position of the player in the arena (for example 3)
+#the filename of the arena (for example "arenas/testarena.txt")
+AI_movement <- function(x_pos, y_pos,
+                                     arena_filename) {
+
 library(stringr)
 library(ReinforcementLearning)
 
-#the (y, x) positie enemy
-enemy = "3 3"
+#the (y, x) positie enemy as string
+enemy = paste(y_pos, x_pos)
 
-#test arena maze as ascii art
-#this should be replaced by the ascii art of the arena
-arena <- array(
-  c(
-  c(0,1,0,1,0),
-  c(0,1,0,1,0),
-  c(0,1,1,1,0),
-  c(0,1,0,1,0),
-  c(0,0,0,1,0),
-  c(0,0,0,1,0)
-  ), dim = c(5, 6)
-)
-arena <- t(arena)
-arena
+#load arena file as ascii art
+arena <- read.table(arena_filename, sep = " ", dec = ".")
 
 #Define a list of states from the arena
 #these should be komma seperated string
@@ -94,4 +90,4 @@ model <- ReinforcementLearning(data,
 
 # Print policy
 computePolicy(model)
-
+}
