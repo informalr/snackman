@@ -69,11 +69,11 @@ Player <- R6::R6Class("Player", #nolint
       private$.name <- name
     },
     print = function(...) {
-      cat("Ghost: \n")
-      cat("    x:  ", private$.x, "\n", sep = "")
-      cat("    y:  ", private$.y, "\n", sep = "")
-      cat(" size:  ", private$.size, "\n", sep = "")
-      cat(" name:  ", private$.name, "\n", sep = "")
+      cat("Player: \n")
+      cat("     x:  ", private$.x, "\n", sep = "")
+      cat("     y:  ", private$.y, "\n", sep = "")
+      cat("  size:  ", private$.size, "\n", sep = "")
+      cat("  name:  ", private$.name, "\n", sep = "")
     }
   )
 )
