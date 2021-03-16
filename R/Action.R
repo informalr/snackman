@@ -36,7 +36,7 @@ Action <- R6::R6Class("Action", #nolint
 )
 
 #' R6 Class representing a "go right" action
-Right <- R6Class("Right",
+Right <- R6::R6Class("Right",
   inherit = Action,
   public = list(
     #' @description
@@ -49,7 +49,7 @@ Right <- R6Class("Right",
 )
 
 #' R6 Class representing a "go left" action
-Left <- R6Class("Left",
+Left <- R6::R6Class("Left",
   inherit = Action,
   public = list(
     #' @description
@@ -62,7 +62,7 @@ Left <- R6Class("Left",
 )
 
 #' R6 Class representing a "go up" action
-Up <- R6Class("Up",
+Up <- R6::R6Class("Up",
   inherit = Action,
   public = list(
     #' @description
@@ -75,7 +75,7 @@ Up <- R6Class("Up",
 )
 
 #' R6 Class representing a "go down" action
-Down <- R6Class("Down",
+Down <- R6::R6Class("Down",
   inherit = Action,
   public = list(
     #' @description

@@ -18,4 +18,11 @@ test_that("things are private", {
 
 test_that("go right", {
   expect_silent(Right$new())
+  expect_silent(Left$new())
+  expect_silent(Up$new())
+  expect_silent(Down$new())
+  expect_equal(class(Right$new()), c("Right", "Action", "R6"))
+  expect_equal(class(Left$new()), c("Left", "Action", "R6"))
+  expect_equal(class(Up$new()), c("Up", "Action", "R6"))
+  expect_equal(class(Down$new()), c("Down", "Action", "R6"))
 })
