@@ -89,16 +89,6 @@ Function argument names:
  * `game_display`: the visualization of the game, e.g. by a Shiny app
 
 ```r
-#' Create an action
-create_action <- function(action_type, ...)
-
-#' Create an action
-create_player_move_left_action <- function() {
-  create_action("move_left_action")
-}
-```
-
-```r
 #' Do actions on a game
 #' @return a game in its new state
 do_actions <- function(game, actions)
@@ -117,6 +107,8 @@ play_game <- function() {
   # Run the visualization
 }
 ```
+
+ * [The AI in pacman](https://gameinternals.com/understanding-pac-man-ghost-behavior)
 
 ## FAQ
 
