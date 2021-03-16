@@ -34,3 +34,55 @@ Action <- R6::R6Class("Action", #nolint
     }
   )
 )
+
+#' R6 Class representing a "go right" action
+Right <- R6Class("Right",
+  inherit = Action,
+  public = list(
+    #' @description
+    #' Create a new go right object.
+    #' @return A new `Right` object.
+    initialize = function() {
+      private$.type <- "right"
+    }
+  )
+)
+
+#' R6 Class representing a "go left" action
+Left <- R6Class("Left",
+  inherit = Action,
+  public = list(
+    #' @description
+    #' Create a new go left object.
+    #' @return A new `Left` object.
+    initialize = function() {
+      private$.type <- "left"
+    }
+  )
+)
+
+#' R6 Class representing a "go up" action
+Up <- R6Class("Up",
+  inherit = Action,
+  public = list(
+    #' @description
+    #' Create a new go up object.
+    #' @return A new `Up` object.
+    initialize = function() {
+      private$.type <- "up"
+    }
+  )
+)
+
+#' R6 Class representing a "go down" action
+Down <- R6Class("Down",
+  inherit = Action,
+  public = list(
+    #' @description
+    #' Create a new go down object.
+    #' @return A new `Down` object.
+    initialize = function() {
+      private$.type <- "down"
+    }
+  )
+)

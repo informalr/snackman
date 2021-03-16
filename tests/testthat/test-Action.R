@@ -15,3 +15,7 @@ test_that("things are private", {
   expect_error(a$type <- "down")
   expect_equal(type, a$type)
 })
+
+test_that("go right", {
+  expect_silent(Right$new())
+})
