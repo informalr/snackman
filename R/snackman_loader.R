@@ -2,6 +2,7 @@
 #'
 #' @description fun game inspired on pacman
 #' @param header The title to display over the game.
+#' @param game_state The game state.
 #' @return Panel that will load the snackman game.
 
 #' @examples

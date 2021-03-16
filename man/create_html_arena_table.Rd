@@ -6,6 +6,9 @@
 \usage{
 create_html_arena_table(game_state)
 }
+\arguments{
+\item{game_state}{the game state given as list containing arena and player}
+}
 \value{
 the table as one line of HTML text
 }

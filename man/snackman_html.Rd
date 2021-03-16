@@ -8,6 +8,8 @@ snackman_html(header = "Snackman", game_state)
 }
 \arguments{
 \item{header}{The title to display over the game.}
+
+\item{game_state}{The game state.}
 }
 \value{
 Panel that will load the snackman game.

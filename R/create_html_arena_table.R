@@ -1,4 +1,7 @@
 #' Create the HTML of the arena as a table
+#'
+#' @param game_state the game state given as list containing arena and player
+#'
 #' @return the table as one line of HTML text
 #' @export
 create_html_arena_table <- function(game_state) {
