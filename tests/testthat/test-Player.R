@@ -1,6 +1,5 @@
 test_that("use", {
   expect_error(
-
     Player$new(x = -1, y = 217, size = 1, name = "Snackman"),
     "x must be 1 or more"
   )
