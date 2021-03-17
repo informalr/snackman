@@ -1,10 +1,10 @@
-#taken from the following website
-#https://cran.r-project.org/web/packages/ReinforcementLearning/vignettes/ReinforcementLearning.html
+# taken from the following website
+# shorturl.at/wyCNT
 
-#function that takes the:
-#x position of the player in the arena (for example 3)
-#y position of the player in the arena (for example 3)
-#the filename of the arena (for example "arenas/testarena.txt")
+# function that takes the:
+# x position of the player in the arena (for example 3)
+# y position of the player in the arena (for example 3)
+# the filename of the arena (for example "arenas/testarena.txt")
 AI_movement <- function(x_pos, y_pos,
                                      arena_filename) {
 
