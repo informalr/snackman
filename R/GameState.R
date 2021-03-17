@@ -69,14 +69,17 @@ GameState <- R6::R6Class("GameState", #nolint
       cat("================================================= \n")
       cat("     Ghosts: \n")
       for (ghost in private$.ghosts) {
-        cat("\n", sep = "")
+        cat("\n")
         cat("          x:", ghost$x, "\n", sep = "")
         cat("          y:", ghost$y, "\n", sep = "")
         cat("personality:", ghost$personality, "\n", sep = "")
       }
       cat("================================================= \n")
       cat("     Arena: \n")
-      cat("      text:  ", private$.arena$text, sep = "\n")
+      cat("    layout: \n")
+      apply(private$.arena$layout, 1, function(x) {
+        cat("           ", x, "\n", sep = "")
+      })
       cat("================================================= \n")
     },
     do_action = function(action) {

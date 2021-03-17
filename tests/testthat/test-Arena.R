@@ -1,79 +1,72 @@
 test_that("use", {
   expect_silent(
     Arena$new(
-      c(
-        "XXXXX",
-        "X...X",
-        "X.XXX",
-        "X...X",
-        "XXXXX"
+      data.frame(
+        V1 = c(1, 0, 1),
+        V2 = c(1, 1, 1),
+        V3 = c(1, 0, 1)
       )
     )
   )
   expect_error(
     Arena$new(NULL),
-    "text must be of character type"
+    "'layout' must not be NULL"
   )
   expect_error(
-    Arena$new(character(0)),
-    "arena must have at least 3 rows"
+    Arena$new("nonsense"),
+    "'layout' must be a data frame"
   )
   expect_error(
-    Arena$new(
-      c(
-        "XXXXX",
-        "X...X"
-      )
-    ),
-    "arena must have at least 3 rows"
+    Arena$new(data.frame(V1 = NULL, V2 = NULL, V3 = NULL)),
+    "'layout' must have at least 3 rows"
   )
   expect_error(
-    Arena$new(
-      c(
-        "XXYXX",
-        "X...X",
-        "X.XXX",
-        "X._.X",
-        "XXXXX"
-      )
-    ),
-    "text must contain only `X` and `.`"
+    Arena$new(data.frame(V1 = c(1, 0), V2 = c(0, 1), V3 = c(1, 0))),
+    "'layout' must have at least 3 rows"
   )
   expect_error(
     Arena$new(
-      c(
-        "XX",
-        "X...X",
-        "X.XXX",
-        "X.X.X",
-        "XXXXX"
+      data.frame(
+        V1 = c(1, 0, 1),
+        V2 = c(1, NA, 1),
+        V3 = c(1, 0, 1)
       )
     ),
-    "Each row in the arena must have at least 3 characters"
+    "'layout' must not contain NA's"
   )
   expect_error(
     Arena$new(
-      c(
-        "XXX",
-        "X...X",
-        "X.XXX",
-        "X.X.X",
-        "XXXXX"
+      data.frame(
+        V1 = c(1, 0, 1),
+        V2 = c(1, 0, 1),
+        V3 = c("X", ".", "X")
       )
     ),
-    "Each row in the arena must have the same number of characters"
+    "'layout' must contain only 1 and 0"
+  )
+  expect_error(
+    Arena$new(
+      data.frame(
+        V1 = c(1, 0, 1),
+        V2 = c(1, 0, 1)
+      )
+    ),
+    "'layout' must have at least 3 columns"
   )
 })
 
 test_that("things are private", {
-  text <- c(
-    "XXXXX",
-    "X...X",
-    "X.XXX",
-    "X...X",
-    "XXXXX"
+  layout <- data.frame(
+    V1 = c(1, 0, 1),
+    V2 = c(1, 1, 1),
+    V3 = c(1, 0, 1)
   )
-  a <- Arena$new(text)
-  expect_error(a$text <- "XXX.XXX")
-  expect_equal(text, a$text)
+  arena <- Arena$new(layout)
+  expect_error(arena$layout <- data.frame(
+      V1 = c(0, 1, 0),
+      V2 = c(0, 0, 0),
+      V3 = c(0, 1, 0)
+    )
+  )
+  expect_equal(layout, arena$layout)
 })

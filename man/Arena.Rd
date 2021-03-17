@@ -9,7 +9,7 @@ R6 Class representing an arena
 R6 Class representing an arena
 }
 \details{
-An arena has a representation in text.
+An arena has a layout.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -25,14 +25,13 @@ An arena has a representation in text.
 \subsection{Method \code{new()}}{
 Create a new arena object.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Arena$new(text)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Arena$new(layout)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{text}}{Character vector
-representing an arena.}
+\item{\code{layout}}{Dataframe with the layout of the arena.}
 }
 \if{html}{\out{</div>}}
 }
