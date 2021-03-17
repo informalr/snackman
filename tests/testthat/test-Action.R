@@ -1,18 +1,23 @@
-test_that("create", {
-  skip("Issue 31. Issue #31")
-  # Uncomment these :-) # nolint
-  # expect_silent(Action$new("player_left")) # nolint
-  # expect_silent(Action$new("player_right")) # nolint
+test_that("use", {
+  expect_silent(action_player_right <- Action$new("right"))
+  expect_equal(action_player_right$type, "right")
+  expect_silent(action_player_left <- Action$new("left"))
+  expect_equal(action_player_left$type, "left")
+  expect_silent(action_player_up <- Action$new("up"))
+  expect_equal(action_player_up$type, "up")
+  expect_silent(action_player_down <- Action$new("down"))
+  expect_equal(action_player_down$type, "down")
+  expect_silent(action_player_no_action <- Action$new("no action"))
+  expect_equal(action_player_no_action$type, "no action")
+  expect_error(
+    Action$new("nonsense"),
+    "'action' must be right, left, up, down or no action"
+  )
 })
 
-test_that("player_left action", {
-  skip("Issue 31. Issue #31")
-  # Uncomment these :-)  # nolint
-  # action_player_left <- Action$new("player_left") # nolint
-  # expect_equal(action_player_left$type, "player_left") # nolint
-})
-
-test_that("player_right action", {
-  # action_player_right <- Action$new("player_right") # nolint
-  # expect_equal(action_player_right$type, "player_right") # nolint
+test_that("things are private", {
+  type <- "up"
+  action <- Action$new(type = type)
+  expect_error(action$type <- "down")
+  expect_equal(type, action$type)
 })

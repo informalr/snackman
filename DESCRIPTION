@@ -14,18 +14,16 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    ReinforcementLearning,
+    rlist,
+    shiny,
+    stringr,
+    R6
 Suggests: 
     testthat (>= 3.0.0),
     covr,
     knitr,
-    rmarkdown,
-    stringr
+    rmarkdown
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Imports: 
-<<<<<<< HEAD
-    ReinforcementLearning,
-    rlist
-=======
-    shiny
->>>>>>> af458c82704e4fc87f47363acd972b32cd70f0bb
