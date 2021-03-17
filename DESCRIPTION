@@ -1,10 +1,14 @@
 Package: snackman
-Title: An awesome game inspired by Pacman
-Version: 0.1
+Title: Game Inspired by Pacman
+Version: 0.2
 Authors@R: c(
     person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
     person("Willy", "Tadema", email = "friesewoudloper@gmail.com", role = "aut"))
-Description: This is a really nice game!
+Description: 
+    Pacman is one of the most famous computer games in history.
+    This package, snackman, is a game inspired on pacman.
+    The added mechanic is that the player can change size, by
+    eating different food types.
 License: AGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -20,4 +24,9 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Imports: 
+<<<<<<< HEAD
+    ReinforcementLearning,
+    rlist
+=======
     shiny
+>>>>>>> af458c82704e4fc87f47363acd972b32cd70f0bb

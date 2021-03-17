@@ -1,7 +1,7 @@
 
 # snackman
 
-Branch   |[GitHub Actions](https://github.com/informalr/snackman/actions)                                     |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
+Branch   |[![GitHub Actions](man/figures/GitHubActions.png)](https://github.com/informalr/snackman/actions)                                     |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 ---------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------
 `master` |![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=master) |[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=master)](https://codecov.io/github/informalr/snackman/branch/master)
 `develop`|![R-CMD-check](https://github.com/informalr/snackman/workflows/R-CMD-check/badge.svg?branch=develop)|[![codecov.io](https://codecov.io/github/informalr/snackman/coverage.svg?branch=develop)](https://codecov.io/github/informalr/snackman/branch/develop)
@@ -19,6 +19,7 @@ The `informalr` R team!
 ![informalr logo](man/figures/informalr_logo.png)
 
 ## Project
+
 Add project description...
 
 ![](snackman.png)
@@ -67,16 +68,7 @@ See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 In case it is undesirable to email Richel,
 contact [Willy](https://github.com/friesewoudloper).
 
-## Long-term schedule
-
-Week|What
-----|--------------------
-.   |Setup package
-.   |Pick gaming library
-.   |Pick AI library
-.   |Sketch game mechanics
-
-## Software arhitecture
+## Software architecture
 
 :warning: these are only the current ideas; this is not set in stone :warning:
 
@@ -85,6 +77,8 @@ General ideas:
  * Separate logic from visualization (MVC architecture)
  * Separate state and action for AI
  * Allow visual (e.g. Shiny) visualization, as well as text-only (for debugging)
+
+![](snackman.png)
 
 Function argument names:
 
@@ -95,26 +89,9 @@ Function argument names:
  * `game_display`: the visualization of the game, e.g. by a Shiny app
 
 ```r
-#' Create an action
-create_action <- function(action_type, ...)
-
-#' Create an action
-create_player_move_left_action <- function() {
-  create_action("move_left_action")
-}
-```
-
-```r
 #' Do actions on a game
 #' @return a game in its new state
 do_actions <- function(game, actions)
-```
-
-```r
-#' Show/print the game as text
-print_game <- function(game) {
-  # Use message/print to show the game as text
-}
 ```
 
 ```r
@@ -123,6 +100,8 @@ play_game <- function() {
   # Run the visualization
 }
 ```
+
+ * [The AI in pacman](https://gameinternals.com/understanding-pac-man-ghost-behavior)
 
 ## FAQ
 
