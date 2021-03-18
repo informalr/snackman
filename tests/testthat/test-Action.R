@@ -7,11 +7,11 @@ test_that("use", {
   expect_equal(action_player_up$type, "up")
   expect_silent(action_player_down <- Action$new("down"))
   expect_equal(action_player_down$type, "down")
-  expect_silent(action_player_no_action <- Action$new("no action"))
-  expect_equal(action_player_no_action$type, "no action")
+  expect_silent(action_player_no_action <- Action$new("none"))
+  expect_equal(action_player_no_action$type, "none")
   expect_error(
     Action$new("nonsense"),
-    "'action' must be right, left, up, down or no action"
+    "'action' must be right, left, up, down or none"
   )
 })
 
