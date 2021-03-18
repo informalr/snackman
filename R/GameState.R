@@ -58,29 +58,38 @@ GameState <- R6::R6Class("GameState", #nolint
       private$.ghosts <- ghosts
       private$.arena <- arena
     },
-    print = function(...) {
+    print = function(verbose = FALSE, ...) {
       cat("Game State: \n")
       cat("================================================= \n")
-      cat("    Player: \n")
-      cat("      name:  ", private$.player$name, "\n", sep = "")
-      cat("         x:  ", private$.player$x, "\n", sep = "")
-      cat("         y:  ", private$.player$y, "\n", sep = "")
-      cat("      size:  ", private$.player$size, "\n", sep = "")
-      cat("================================================= \n")
-      cat("     Ghosts: \n")
-      for (ghost in private$.ghosts) {
-        cat("\n")
-        cat("          x:", ghost$x, "\n", sep = "")
-        cat("          y:", ghost$y, "\n", sep = "")
-        cat("personality:", ghost$personality, "\n", sep = "")
-      }
-      cat("================================================= \n")
-      cat("     Arena: \n")
-      cat("    layout: \n")
-      apply(private$.arena$layout, 1, function(x) {
-        cat("           ", x, "\n", sep = "")
+      map <- private$.arena$layout
+      map[private$.player$y, private$.player$x] <- "P"
+      sapply(private$.ghosts, function(ghost) map[ghost$y, ghost$x] <<- "G")
+      apply(map, 1, function(x) {
+        cat("           ", x, "\n", sep = " ")
       })
       cat("================================================= \n")
+      if (verbose) {
+        cat("    Player: \n")
+        cat("      name:  ", private$.player$name, "\n", sep = "")
+        cat("         x:  ", private$.player$x, "\n", sep = "")
+        cat("         y:  ", private$.player$y, "\n", sep = "")
+        cat("      size:  ", private$.player$size, "\n", sep = "")
+        cat("================================================= \n")
+        cat("     Ghosts: \n")
+        for (ghost in private$.ghosts) {
+          cat("\n")
+          cat("          x:", ghost$x, "\n", sep = "")
+          cat("          y:", ghost$y, "\n", sep = "")
+          cat("personality:", ghost$personality, "\n", sep = "")
+        }
+        cat("================================================= \n")
+        cat("     Arena: \n")
+        cat("    layout: \n")
+        apply(private$.arena$layout, 1, function(x) {
+          cat("           ", x, "\n", sep = " ")
+        })
+        cat("================================================= \n")
+      }
     },
     do_action = function(action) {
       cat("Not implemented yet")

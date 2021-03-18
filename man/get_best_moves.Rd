@@ -4,21 +4,19 @@
 \alias{get_best_moves}
 \title{Get best moves}
 \usage{
-get_best_moves(x_pos, y_pos, arena)
+get_best_moves(player, arena)
 }
 \arguments{
-\item{x_pos}{x position of the enemy in the arena.}
-
-\item{y_pos}{y position of the enemy in the arena.}
+\item{player}{Player}
 
 \item{arena}{Arena.}
 }
 \value{
 Named character vector with best moves for every position in the
-arena, taking into account the position of the enemy.
+arena.
 }
 \description{
 This function uses reinforcement learning to determine the best moves
-for a player for every position in the arena, taking into account the
-position of the enemy.
+for a ghost for every position in the arena, taking into account the
+position of the player.
 }

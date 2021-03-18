@@ -1,4 +1,6 @@
 test_that("use", {
-  expect_silent(best_moves <- get_best_moves(4, 1, create_test_arena()))
-  expect_type(best_moves, "character")
+  player <- create_test_player()
+  arena <- create_test_arena()
+  expect_silent(moves <- get_best_moves(player, arena))
+  expect_type(moves, "character")
 })

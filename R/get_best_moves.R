@@ -1,16 +1,15 @@
 #' Get best moves
 #'
 #' This function uses reinforcement learning to determine the best moves
-#' for a player for every position in the arena, taking into account the
-#' position of the enemy.
+#' for a ghost for every position in the arena, taking into account the
+#' position of the player.
 #'
-#' @param x_pos x position of the enemy in the arena.
-#' @param y_pos y position of the enemy in the arena.
+#' @param player Player
 #' @param arena Arena.
 #' @return Named character vector with best moves for every position in the
-#' arena, taking into account the position of the enemy.
+#' arena.
 #' @export
-get_best_moves <- function(x_pos, y_pos, arena) {
+get_best_moves <- function(player, arena) {
   # Get states
   rows <- which(arena$layout == 1) %% nrow(arena$layout)
   rows <- ifelse(rows == 0, nrow(arena$layout), rows)
@@ -20,7 +19,7 @@ get_best_moves <- function(x_pos, y_pos, arena) {
   # Combine states with actions and calculate the reward.
   # If the states becomes the position of the enemy, the reward is high.
   env <- function(state, action) {
-    enemy <- paste(y_pos, x_pos)
+    enemy <- paste(player$y, player$x)
     pos <- as.numeric(stringr::str_split(string = state, pattern = " ")[[1]])
     row <- pos[1]
     col <- pos[2]
