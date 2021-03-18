@@ -22,7 +22,3 @@ This function uses reinforcement learning to determine the best moves
 for a player for every position in the arena, taking into account the
 position of the enemy.
 }
-\details{
-See https://cran.r-project.org/web/packages/ReinforcementLearning/
-vignettes/ReinforcementLearning.html
-}

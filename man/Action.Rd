@@ -9,7 +9,7 @@ R6 Class representing an action
 R6 Class representing an action
 }
 \details{
-An action has a type (right, left, up, down or no action).
+An action has a type (right, left, up, down or none).
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -31,7 +31,7 @@ Create a new action object.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{type}}{Type of action (right, left, up, down or no action).}
+\item{\code{type}}{Type of action (right, left, up, down or none).}
 }
 \if{html}{\out{</div>}}
 }
