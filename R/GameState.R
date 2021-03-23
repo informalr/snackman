@@ -6,7 +6,7 @@ GameState <- R6::R6Class("GameState", #nolint
     .player = NULL,
     .ghosts = NULL,
     .arena = NULL,
-    check = function(player, ghosts, arena) {
+    .check = function(player, ghosts, arena) {
       if (!identical(class(player), c("Player", "R6"))) {
         stop("player must be of class Player")
       }
@@ -61,7 +61,7 @@ GameState <- R6::R6Class("GameState", #nolint
     #' @param arena Arena.
     #' @return A new `GameState` object.
     initialize = function(player, ghosts, arena) {
-      private$check(player, ghosts, arena)
+      private$.check(player, ghosts, arena)
       private$.player <- player
       private$.ghosts <- ghosts
       private$.arena <- arena
