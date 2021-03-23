@@ -49,7 +49,7 @@ A new \code{GameState} object.
 \if{latex}{\out{\hypertarget{method-print}{}}}
 \subsection{Method \code{print()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GameState$print(...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GameState$print(verbose = FALSE, ...)}\if{html}{\out{</div>}}
 }
 
 }

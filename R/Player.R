@@ -8,19 +8,31 @@ Player <- R6::R6Class("Player", #nolint
     .y = NA,
     .size = NA,
     .name = NULL,
-    check = function(x, y, size, name) {
+    .check_x = function(x) {
       if (x < 1) {
         stop("x must be 1 or more")
       }
+    },
+    .check_y = function(y) {
       if (y < 1) {
         stop("y must be 1 or more")
       }
+    },
+    .check_size = function(size) {
       if (is.null(size) || !is.numeric(size) || !size %in% c(1, 2, 3)) {
         stop("size must be 1, 2 or 3")
       }
+    },
+    .check_name = function(name) {
       if (is.null(name) || nchar(name) == 0) {
         stop("name must be a character of length > 0")
       }
+    },
+    .check = function(x, y, size, name) {
+      private$.check_x(x)
+      private$.check_y(y)
+      private$.check_size(size)
+      private$.check_name(name)
     }
   ),
   active = list(
@@ -28,21 +40,24 @@ Player <- R6::R6Class("Player", #nolint
       if (missing(value)) {
         private$.x
       } else {
-        stop("`$x`is read only", call. = FALSE)
+        private$.check_x(value)
+        private$.x <- value
       }
     },
     y = function(value) {
       if (missing(value)) {
         private$.y
       } else {
-        stop("`$y`is read only", call. = FALSE)
+        private$.check_y(value)
+        private$.y <- value
       }
     },
     size = function(value) {
       if (missing(value)) {
         private$.size
       } else {
-        stop("`$size`is read only", call. = FALSE)
+        private$.check_size(value)
+        private$.size <- value
       }
     },
     name = function(value) {
@@ -62,7 +77,7 @@ Player <- R6::R6Class("Player", #nolint
     #' @param name Name.
     #' @return A new `Player` object.
     initialize = function(x, y, size, name) {
-      private$check(x, y, size, name)
+      private$.check(x, y, size, name)
       private$.x <- x
       private$.y <- y
       private$.size <- size
