@@ -34,7 +34,7 @@ Arena <- R6::R6Class("Arena", #nolint
       }
     },
     condensed_layout = function() {
-      paste(apply(private$.layout, 1, paste, collapse=""), collapse = "")
+      paste(apply(private$.layout, 1, paste, collapse = ""), collapse = "")
     }
   ),
   public = list(
