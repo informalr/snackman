@@ -26,8 +26,16 @@ GameState <- R6::R6Class("GameState", #nolint
     player = function(value) {
       if (missing(value)) {
         private$.player
+      } else if (is_player(value)) {
+          if (private$.player$name != value$name) {
+            stop("'name' is read only")
+          } else {
+            private$.player$x <- value$x
+            private$.player$y <- value$y
+            private$.player$size <- value$size
+          }
       } else {
-        stop("`$player`is read only", call. = FALSE)
+        stop("Input must be of type Player")
       }
     },
     ghosts = function(value) {

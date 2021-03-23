@@ -1,15 +1,14 @@
-#' Get best moves
+#' Train AI model
 #'
-#' This function uses reinforcement learning to determine the best moves
-#' for a ghost for every position in the arena, taking into account the
-#' position of the player.
+#' This function uses reinforcement learning to train a model to predict the
+#' best move for a ghost, taking into account the position of the player.
 #'
 #' @param player Player
 #' @param arena Arena.
 #' @return Named character vector with best moves for every position in the
 #' arena.
 #' @export
-get_best_moves <- function(player, arena) {
+train_ai_model <- function(player, arena) {
   # Get states
   rows <- which(arena$layout == 1) %% nrow(arena$layout)
   rows <- ifelse(rows == 0, nrow(arena$layout), rows)

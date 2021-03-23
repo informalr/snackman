@@ -44,18 +44,18 @@ test_that("use", {
     "name must be a character of length > 0")
 })
 
-test_that("things are private", {
+test_that("things are public or private", {
   x <- 314
   y <- 272
   size <- 3
   name <- "Jack"
-  g <- Player$new(x = x, y = y, size = size, name = name)
-  expect_error(g$x <- 1)
-  expect_error(g$y <- 1)
-  expect_error(g$size <- 1)
-  expect_error(g$name <- "Pacman")
-  expect_equal(x, g$x)
-  expect_equal(y, g$y)
-  expect_equal(size, g$size)
-  expect_equal(name, g$name)
+  player <- Player$new(x = x, y = y, size = size, name = name)
+  expect_silent(player$x <- 1)
+  expect_silent(player$y <- 1)
+  expect_silent(player$size <- 1)
+  expect_error(player$name <- "Pacman")
+  expect_equal(player$x, 1)
+  expect_equal(player$y, 1)
+  expect_equal(player$size, 1)
+  expect_equal(player$name, name)
 })
