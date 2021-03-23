@@ -35,8 +35,8 @@ train_ai_model <- function(player, arena) {
   env <- function(state, action) {
     enemy <- paste(player$y, player$x)
     pos <- as.numeric(stringr::str_split(string = state, pattern = " ")[[1]])
-    row <- pos[1]
-    col <- pos[2]
+    y <- pos[1]
+    x <- pos[2]
 
     delta <- switch(action,
                     "down"  = c(1, 0),
@@ -45,15 +45,15 @@ train_ai_model <- function(player, arena) {
                     "right" = c(0, 1)
     )
 
-    next_row <- row + delta[1]
-    next_col <- col + delta[2]
+    next_y <- y + delta[1]
+    next_x <- x + delta[2]
 
     if (
-      arena$layout[next_row, next_col] == 1 &&
-      next_row %in% seq_len(nrow(arena$layout)) &&
-      next_col %in% seq_len(ncol(arena$layout))
+      next_y %in% seq_len(nrow(arena$layout)) &&
+      next_x %in% seq_len(ncol(arena$layout)) &&
+      arena$layout[next_y, next_x] == 1
     ) {
-      next_state <- paste(next_row, next_col)
+      next_state <- paste(next_y, next_x)
     } else {
       next_state <- state
     }

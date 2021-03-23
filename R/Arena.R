@@ -8,8 +8,8 @@ Arena <- R6::R6Class("Arena", #nolint
       if (is.null(layout)) {
         stop("'layout' must not be NULL")
       }
-      if (!is.data.frame(layout)) {
-        stop("'layout' must be a data frame")
+      if (!is.matrix(layout)) {
+        stop("'layout' must be a matrix")
       }
       if (nrow(layout) < 3) {
         stop("'layout' must have at least 3 rows")
@@ -34,7 +34,7 @@ Arena <- R6::R6Class("Arena", #nolint
       }
     },
     condensed_layout = function() {
-      paste(apply(private$.layout, 1, paste, collapse = ""), collapse = "")
+      paste(private$.layout, collapse = "")
     }
   ),
   public = list(
@@ -49,9 +49,11 @@ Arena <- R6::R6Class("Arena", #nolint
     print = function(...) {
       cat(" Arena: \n")
       cat("layout: \n")
-      apply(private$.layout, 1, function(x) {
-        cat("         ", x, "\n", sep = "")
-      })
+      prmatrix(
+        private$.layout,
+        rowlab = rep("", nrow(private$.layout)),
+        collab = rep("", ncol(private$.layout))
+      )
     }
   )
 )

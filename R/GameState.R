@@ -77,11 +77,7 @@ GameState <- R6::R6Class("GameState", #nolint
       })
       cat("================================================= \n")
       if (verbose) {
-        cat("    Player: \n")
-        cat("      name:  ", private$.player$name, "\n", sep = "")
-        cat("         x:  ", private$.player$x, "\n", sep = "")
-        cat("         y:  ", private$.player$y, "\n", sep = "")
-        cat("      size:  ", private$.player$size, "\n", sep = "")
+        print(private$.player)
         cat("================================================= \n")
         cat("     Ghosts: \n")
         for (ghost in private$.ghosts) {
@@ -91,11 +87,7 @@ GameState <- R6::R6Class("GameState", #nolint
           cat("personality:", ghost$personality, "\n", sep = "")
         }
         cat("================================================= \n")
-        cat("     Arena: \n")
-        cat("    layout: \n")
-        apply(private$.arena$layout, 1, function(x) {
-          cat("           ", x, "\n", sep = " ")
-        })
+        print(private$.arena)
         cat("================================================= \n")
       }
     },

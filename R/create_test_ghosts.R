@@ -2,7 +2,7 @@
 #' @export
 create_test_ghosts <- function() {
   list(
-    Ghost$new(4, 1, "chase"),
-    Ghost$new(4, 6, "ambush")
+    # For now there can be only one ghost in the game
+    Ghost$new(4, 1, "chase")
   )
 }
