@@ -20,18 +20,18 @@ best move for a ghost, taking into account the position of the player.
 }
 \details{
 The trained model is saved as a \code{.rda} file in the \code{data} map:
-\code{save(model, file = "data/model.rda")}
+\code{usethis::use_data(ai_model, internal = TRUE, overwrite = TRUE)}
 }
 \examples{
 player <- create_test_player()
 arena <- create_test_arena()
-model <- train_ai_model(player, arena)
+ai_model <- train_ai_model(player, arena)
 # Display the best possible action in every state
 ReinforcementLearning::computePolicy(model)
 # Write state-action table to the screen
-print(model)
+print(ai_model)
 # Additional diagnostics regarding the model
-summary(model)
+summary(ai_model)
 # Apply the model to predict best move
-predict(model, "3 4")
+predict(ai_model, "3 4")
 }

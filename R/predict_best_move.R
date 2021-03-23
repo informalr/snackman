@@ -7,12 +7,12 @@
 #' @return Character vector containing the best move for each ghost in the game.
 #' @export
 predict_best_move <- function(game_state) {
+  test_player <- create_test_player()
+  test_arena <- create_test_arena()
+
   # The model was trained on a game state with the player on position
   # (x = 2, y = 1) and for the test arena.
   # So the applicability of the model is limited!
-
-  test_player <- create_test_player()
-  test_arena <- create_test_arena()
 
   if (game_state$player$x != test_player$x ||
       game_state$player$y != test_player$y ||
@@ -25,7 +25,7 @@ predict_best_move <- function(game_state) {
       # error. Hence the workaround. An alternative would be to explicitly load
       # the ReinforcementLearning package using a library statement.
       ReinforcementLearning:::predict.rl(
-        snackman::model,
+        ai_model,
         paste(ghost$y, ghost$x)
       )
     })
