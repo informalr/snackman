@@ -20,6 +20,15 @@ GameState <- R6::R6Class("GameState", #nolint
       if (!identical(class(arena), c("Arena", "R6"))) {
         stop("arena must be of class Arena")
       }
+    },
+    .state = function() {
+      m <- private$.arena$layout
+      m[private$.player$y, private$.player$x] <- "P"
+      sapply(private$.ghosts, function(ghost) m[ghost$y, ghost$x] <<- "G")
+      m
+    },
+    .condensed_state = function() {
+      paste(private$.state(), collapse = "")
     }
   ),
   active = list(
@@ -27,13 +36,13 @@ GameState <- R6::R6Class("GameState", #nolint
       if (missing(value)) {
         private$.player
       } else if (is_player(value)) {
-          if (private$.player$name != value$name) {
-            stop("'name' is read only")
-          } else {
-            private$.player$x <- value$x
-            private$.player$y <- value$y
-            private$.player$size <- value$size
-          }
+        if (private$.player$name != value$name) {
+          stop("'name' is read only")
+        } else {
+          private$.player$x <- value$x
+          private$.player$y <- value$y
+          private$.player$size <- value$size
+        }
       } else {
         stop("Input must be of type Player")
       }
@@ -51,6 +60,9 @@ GameState <- R6::R6Class("GameState", #nolint
       } else {
         stop("`$arena`is read only", call. = FALSE)
       }
+    },
+    condensed_state = function() {
+      private$.condensed_state()
     }
   ),
   public = list(
@@ -68,23 +80,19 @@ GameState <- R6::R6Class("GameState", #nolint
     },
     print = function(verbose = FALSE, ...) {
       cat("Game State: \n")
-      cat("================================================= \n")
-      map <- private$.arena$layout
-      map[private$.player$y, private$.player$x] <- "P"
-      sapply(private$.ghosts, function(ghost) map[ghost$y, ghost$x] <<- "G")
-      apply(map, 1, function(x) {
-        cat("           ", x, "\n", sep = " ")
-      })
+      cat("=================================================")
+      prmatrix(
+        private$.state(),
+        rowlab = rep("", nrow(private$.arena$layout)),
+        collab = rep("", ncol(private$.arena$layout)),
+        quote = FALSE
+      )
       cat("================================================= \n")
       if (verbose) {
         print(private$.player)
         cat("================================================= \n")
-        cat("     Ghosts: \n")
         for (ghost in private$.ghosts) {
-          cat("\n")
-          cat("          x:", ghost$x, "\n", sep = "")
-          cat("          y:", ghost$y, "\n", sep = "")
-          cat("personality:", ghost$personality, "\n", sep = "")
+          print(ghost)
         }
         cat("================================================= \n")
         print(private$.arena)
