@@ -3,11 +3,26 @@
 #' This function uses reinforcement learning to train a model to predict the
 #' best move for a ghost, taking into account the position of the player.
 #'
+#' @details The trained model is saved as a `.rda` file in the `data` map:
+#' `save(model, file = "data/model.rda")`
+#'
 #' @param player Player
 #' @param arena Arena.
-#' @return Named character vector with best moves for every position in the
-#' arena.
+#' @return Reinforcement learning model predicting the best next move.
 #' @export
+#' @md
+#' @examples
+#' player <- create_test_player()
+#' arena <- create_test_arena()
+#' model <- train_ai_model(player, arena)
+#' # Display the best possible action in every state
+#' ReinforcementLearning::computePolicy(model)
+#' # Write state-action table to the screen
+#' print(model)
+#' # Additional diagnostics regarding the model
+#' summary(model)
+#' # Apply the model to predict best move
+#' predict(model, "3 4")
 train_ai_model <- function(player, arena) {
   # Get states
   rows <- which(arena$layout == 1) %% nrow(arena$layout)
@@ -71,7 +86,10 @@ train_ai_model <- function(player, arena) {
                                                         r = "Reward",
                                                         s_new = "NextState",
                                                         control = control)
-
-  # Return policy
-  ReinforcementLearning::computePolicy(model)
+  return(model)
 }
+
+#' AI model for predicting the best moves for ghosts.
+#'
+#' The model was trained using the function \code{\link{train_ai_model}}.
+"model"

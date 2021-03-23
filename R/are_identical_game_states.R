@@ -72,5 +72,5 @@ are_identical_ghosts <- function(ghosts_1, ghosts_2) {
 #' @return Logical indicating whether arena's are identical (`TRUE` ir `FALSE`).
 #' @export
 are_identical_arenas <- function(arena_1, arena_2) {
-  return(all(arena_1$layout == arena_2$layout))
+  return(identical(arena_1$layout, arena_2$layout))
 }
