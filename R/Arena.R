@@ -32,6 +32,9 @@ Arena <- R6::R6Class("Arena", #nolint
       } else {
         stop("'layout' is read only", call. = FALSE)
       }
+    },
+    condensed_layout = function() {
+      paste(apply(private$.layout, 1, paste, collapse=""), collapse = "")
     }
   ),
   public = list(

@@ -1,6 +1,6 @@
 test_that("use", {
   expect_silent(
-    Arena$new(
+    arena <- Arena$new(
       data.frame(
         V1 = c(1, 0, 1),
         V2 = c(1, 1, 1),
@@ -8,6 +8,7 @@ test_that("use", {
       )
     )
   )
+  expect_equal(arena$condensed_layout, "111010111")
   expect_error(
     Arena$new(NULL),
     "'layout' must not be NULL"
