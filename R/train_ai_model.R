@@ -16,7 +16,7 @@
 #' arena <- create_test_arena()
 #' ai_model <- train_ai_model(player, arena)
 #' # Display the best possible action in every state
-#' ReinforcementLearning::computePolicy(model)
+#' ReinforcementLearning::computePolicy(ai_model)
 #' # Write state-action table to the screen
 #' print(ai_model)
 #' # Additional diagnostics regarding the model
