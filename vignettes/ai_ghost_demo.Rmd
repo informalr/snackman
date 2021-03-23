@@ -1,0 +1,47 @@
+---
+title: "ai_ghost_demo"
+author: "Geert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ai_ghost_demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(snackman)
+library(ReinforcementLearning)
+library(stringr)
+```
+This demo demonstrates the train_ai_model
+
+```{r, fig.show='hold'}
+
+arena <- create_test_arena()$layout
+policy <- computePolicy(train_ai_model(create_test_player(),create_test_arena()))
+
+
+for(i in 1:length(policy)) {
+action <-  policy[[i]]
+pos <- as.numeric(str_split(names(policy[i]), pattern = " ")[[1]])
+y <- pos[1]
+x <- pos[2]
+arena[y,x] <- action
+}
+
+y <- create_test_player()$y
+x <- create_test_player()$x
+arena[y,x] <- "player"
+
+arena
+
+```
+
